@@ -1,0 +1,147 @@
+body {
+    overflow-x: hidden;
+    color: #000;
+}
+
+/* Header Elements */
+h4, h5 {
+    font-family: 'proxima_nova_rgregular';
+}
+
+/* we are using a sticky navbar and this offsets the navbar height */
+.content {
+   padding-top: 94px;
+}
+
+.divider {
+    background-color: #000;
+    width: 80px;
+    height: 4px;
+    margin: auto;
+    position: relative;
+    bottom: 10px;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+        background-color: #339B9A !important;
+        padding: 1.5rem 2rem;
+        color: #fff !important;
+        letter-spacing: 2px;
+        border: 2px solid #000;
+
+        &:hover, &:focus {
+            text-decoration: none;
+            filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+        }
+    }
+}
+
+.btn.btn-secondary {
+    border-radius: 0;
+    border: 0;
+    font-size: 16px;
+    color: #000;
+    font-family: 'proxima_novasemibold';
+    letter-spacing: 2px;
+    background: #99cccc;
+    text-transform: uppercase;
+    padding: 10px 40px;
+}
+
+.box-accordion {
+    .panel {
+        margin-bottom: 0;
+        border-radius: 0px;
+        border-left: none;
+        border-right: none;
+
+        &.active {
+            border-top: none;
+
+            .panel-heading {
+                display: none;
+            }
+
+            .panel-body {
+                border-top: none;
+            }
+        }
+
+        .panel-heading {
+            background: transparent;
+
+            .panel-title {
+                color: #999999;
+                text-transform: uppercase;
+                padding: 10px;
+
+                a:hover, a:focus {
+                    text-decoration: none;
+                    color: #999; //adding hover color for completed
+                }
+
+                &.visited {
+                    color: #000;
+                }
+            }
+        }
+
+        .btn.btn-primary, .btn.btn-primary:hover {
+            width: 200px !important;
+            text-transform: uppercase;
+            font-family: 'proxima_nova_rgbold';
+            background-color: #439a9a !important;
+            color: #FFF;
+            padding: 7px;
+            width: 60%;
+            font-size: 20px;
+            margin: 15px 0;
+            border-radius: 0;
+        }
+    }
+
+    .panel-group .panel+.panel {
+        margin-top: 0px;
+        border-top: 0;
+    }
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &.space-between {
+        justify-content: space-between;
+    }
+
+    &.space-around {
+        justify-content: space-around;
+    }
+
+    &.flex-end {
+        justify-content: flex-end;
+    }
+
+    .flex-item-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &.center-col {
+            align-items: center;
+        }
+    }
+}
+
+.flex-col {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}

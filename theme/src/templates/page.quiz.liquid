@@ -1,0 +1,242 @@
+<div class="quiz-container"></div>
+
+<script>
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Quiz from '../../components/quiz/Quiz';
+
+const questions = [
+    {
+        'id': 1,
+        'text': '1. Uh oh– it’s the day before the big event and your closet is a black pit of despair. The outfit you desperately need is...',
+        'questionType': 'single-image',
+        'imageUrl': '//cdn.shopify.com/s/files/1/1182/4752/t/3/assets/quiz__q1main1.jpg?13287881187101057458',
+        'answers': [
+            {
+                'style': 'classic-beauty',
+                'text': 'Little Black Dress'
+            },
+            {
+                'style': 'la-femme-fatale',
+                'text': 'Thigh High Slit'
+            },
+            {
+                'style': 'fun-flashy-flirty',
+                'text': 'Patterned & Flirty'
+            },
+            {
+                'style': 'boho-glam',
+                'text': 'Romantic & Dreamy'
+            },
+            {
+                'style': 'uptown-girl',
+                'text': 'Serious Sequins'
+            },
+            {
+                'style': 'fierce-fresh',
+                'text': 'Fitted Like A Glove'
+            }
+        ]
+    },
+    {
+        'id': 2,
+        'text': '2. To accessorize that winning look, you add...',
+        'questionType': 'multi-image',
+        'answers': [
+            {
+                'style': 'classic-beauty',
+                'text': 'Timeless pearls',
+                'image': 'image-q2o4'
+            },
+            {
+                'style': 'fun-flashy-flirty',
+                'text': 'Colorful statement pieces',
+                'image': 'image-q2o1'
+            },
+            {
+                'style': 'uptown-girl',
+                'text': 'Sparkle and shine',
+                'image': 'image-q2o3'
+            },
+            {
+                'style': 'fierce-fresh',
+                'text': 'Hoops, chains and spikes',
+                'image': 'image-q2o2'
+            },
+            {
+                'style': 'boho-glam',
+                'text': 'Whimsical and vintage-inspired jewelry',
+                'image': 'image-q2o6'
+            },
+            {
+                'style': 'la-femme-fatale',
+                'text': 'Deep V\'s and serpentine pieces',
+                'image': 'image-q2o5'
+            }
+        ]
+    },
+    {
+        'id': 3,
+        'text': '3. Nothing says pick-me-up quite like a trip to the nail salon. Your go-to shade is...',
+        'questionType': 'multi-image',
+        'answers': [
+            {
+                'style': 'classic-beauty',
+                'text': 'Short & Red',
+                'subText': 'Classic all the way',
+                'image': 'image-q3o1'
+            },
+            {
+                'style': 'uptown-girl',
+                'text': 'Glittered & Bedazzled',
+                'subText': 'You show stopper, you',
+                'image': 'image-q3o2'
+            },
+            {
+                'style': 'fierce-fresh',
+                'text': 'Long & Pointed',
+                'subText': 'RAWR! Street swag',
+                'image': 'image-q3o3'
+            },
+            {
+                'style': 'la-femme-fatale',
+                'text': 'Dark & Vampy',
+                'subText': 'Mysterious and irresistible',
+                'image': 'image-q3o4'
+            },
+            {
+                'style': 'boho-glam',
+                'text': 'Muted Natural Shades',
+                'subText': 'Keep it earthy girl',
+                'image': 'image-q3o5'
+            },
+            {
+                'style': 'fun-flashy-flirty',
+                'text': 'Vibrant & Artsy',
+                'subText': 'Pop art like Warhol did those nails',
+                'image': 'image-q3o6'
+            }
+        ]
+    },
+    {
+        'id': 4,
+        'text': '4. Your phone case isn’t just practical, it also has it’s own flare. You’re sporting...',
+        'questionType': 'multi-image',
+        'answers': [
+            {
+                'style': 'classic-beauty',
+                'text': 'Quilted Leather',
+                'subText': 'Matches my purse',
+                'image': 'image-q4o1'
+            },
+            {
+                'style': 'uptown-girl',
+                'text': 'Crushed Crystals',
+                'subText': 'That’s not the only thing that’s bedazzled',
+                'image': 'image-q4o2'
+            },
+            {
+                'style': 'fierce-fresh',
+                'text': 'Brass Knuckles',
+                'subText': 'What, it’s versatile, OK?!',
+                'image': 'image-q4o3'
+            },
+            {
+                'style': 'la-femme-fatale',
+                'text': 'Snakeskin Print',
+                'subText': 'No actual pythons were harmed in the making of this case',
+                'image': 'image-q4o4'
+            },
+            {
+                'style': 'boho-glam',
+                'text': 'Suede Tassels',
+                'subText': 'Did Native Americans have phones?',
+                'image': 'image-q4o5'
+            },
+            {
+                'style': 'fun-flashy-flirty',
+                'text': 'Rabbit Ears',
+                'subText': 'It\'s a bunny, you guys!',
+                'image': 'image-q4o6'
+            }
+        ]
+    },
+    {
+        'id': 5,
+        'text': '5. Whose closet would you love to raid?',
+        'questionType': 'multi-image',
+        'answers': [
+            {
+                'style': 'fun-flashy-flirty',
+                'text': '',
+                'image': 'image-q5o1'
+            },
+            {
+                'style': 'fierce-fresh',
+                'text': '',
+                'image': 'image-q5o2'
+            },
+            {
+                'style': 'uptown-girl',
+                'text': '',
+                'image': 'image-q5o3'
+            },
+            {
+                'style': 'classic-beauty',
+                'text': '',
+                'image': 'image-q5o4'
+            },
+            {
+                'style': 'la-femme-fatale',
+                'text': '',
+                'image': 'image-q5o5'
+            },
+            {
+                'style': 'boho-glam',
+                'text': '',
+                'image': 'image-q5o6'
+            }
+        ]
+    },
+    {
+        'id': 6,
+        'text': '6. Your style mantra is…. (Select all that apply)',
+        'questionType': 'multi-image',
+        'answers': [
+            {
+                'style': 'classic-beauty',
+                'text': 'Subtle & refined à la Breakfast at Tiffany’s',
+                'image': 'image-q6o1'
+            },
+            {
+                'style': 'fierce-fresh',
+                'text': 'Cool, downtown rebel',
+                'image': 'image-q6o2'
+            },
+            {
+                'style': 'boho-glam',
+                'text': 'Earthy, ethnic, ommmm',
+                'image': 'image-q6o3'
+            },
+            {
+                'style': 'fun-flashy-flirty',
+                'text': 'Prettied up and playful',
+                'image': 'image-q6o4'
+            },
+            {
+                'style': 'uptown-girl',
+                'text': 'Shine bright like a diamond',
+                'image': 'image-q6o5'
+            },
+            {
+                'style': 'la-femme-fatale',
+                'text': 'Seductive..all eyes on me',
+                'image': 'image-q6o6'
+            }
+        ]
+    }
+]
+
+ReactDOM.render( <Quiz questions={questions} />, document.querySelector('.quiz-container'));
+
+</script>

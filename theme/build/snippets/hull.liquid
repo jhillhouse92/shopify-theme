@@ -1,0 +1,26 @@
+<script id="hull-js-sdk" access-token="{{ customer.metafields.hull.access_token }}" customer-id="{{customer.id}}" org-url="https://f214c02e.hullapp.io" platform-id="56ec285d001871f50d0002fe" js-url="https://js.hull.io/0.9.0/hull.js.gz" callback-url="/a/hull-callback" raven-dsn="" src="">
+window.HullShopify = (function() {
+  var data = { template: {{template | json }} };
+  {% if cart %}data.cart = {{ cart | json }};{% endif %}
+  {% if product %}data.product = {{ product | json }};{% endif %}
+  {% if collection %}data.collection = {{ collection | json }};{% endif %}
+  {% if customer %}data.customer = { id: {{ customer.id | json }} };{% endif %}
+  {% if search %}data.search = { results_count: {{search.results_count}}, terms: {{ search.terms | json }}}{% endif %}
+  return data;
+})();
+</script>
+
+<script data-ignore="true">
+    hullAsyncInit = function(hull) {
+        console.log('Hull Async Init', hull),
+        hull.ready(function(hull, me, app, org) {
+          console.log('Hull Ready!');
+        });
+        hull.on('hull.ready',function(hull, me, app, org) {
+          console.log('Hull ready from event')
+        });
+        hull.on('hull.ships.ready', function() {
+          console.log('Ships Ready');
+        })
+      }
+</script>

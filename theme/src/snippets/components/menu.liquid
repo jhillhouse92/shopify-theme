@@ -1,0 +1,68 @@
+<div class="react-navbar sticky"></div>
+
+<script type="text/javascript">
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import NavbarContainer from '../../components/NavbarContainer';
+
+let menuItems = [];
+
+/*
+ * To do:
+ *  1.) Add URL property to dropdown menu item
+ *  2.) Add active property to items to support current property
+ *  3.) In future releases enable a 2nd level dropdown menu item
+ *
+ */
+
+// This syntax (//!... !//) denotes liquid and will be stripped out, the reason for this is because using liquid causes Babel parsing errors
+//! {% for link in linklists.main-menu.links %} !//
+    //!  {% assign child_list_handle = link.handle %} !//
+    //!  {% if linklists[child_list_handle].links != blank %} !//
+            let dropdown = {
+                title: "! '{{ link.title }}' !",
+                items: []
+            };
+            //! {% for childlink in linklists[child_list_handle].links %} !//
+                let href = "! '{{ childlink.url }}' !";
+
+                //when: customer is logged in
+                //then: Subscribe option is different
+                //! {% if childlink.title == 'Subscribe' %} !//
+                    //! {% if customer.metafields.vavavoo['style'] && !customer.metafields.vavavoo['subscriber'] %} !//
+                        console.log("! {{ customer.metafields.vavavoo | json }} !");
+                        href = "! '{{ customer.metafields.vavavoo['style-url'] }}' !";
+                    //! {% endif %} !//
+                //! {% endif %} !//
+
+                let items = {
+                    title: "! '{{ childlink.title }}' !",
+                    href: href
+                };
+
+                dropdown.items.push(items);
+            //! {% endfor %} !//
+            menuItems.push(dropdown);
+        //! {% else %} //
+            let link = {
+                title: "! '{{ link.title }}' !",
+                href: "! '{{ link.url }}' !"
+            }
+
+            menuItems.push(link);
+    //! {% endif %} !//
+//! {% endfor %} !//
+
+//to use liquid variables in JSX, must declare them as JS variables prior so they are parsed correctly by Babel
+let imgUrl = "! '{{ 'logo-image-file.png' | asset_url }}' !";
+let imgAlt = "! '{{ shop.name }}' !";
+
+
+ReactDOM.render(
+    <NavbarContainer menuItems={menuItems} logoHref="/" imgUrl={imgUrl} imgAlt={imgAlt} />,
+
+    document.querySelector('.react-navbar')
+);
+
+</script>

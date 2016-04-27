@@ -1,0 +1,395 @@
+.quiz {
+    .vvv-page-header-div {
+        background-image: url(https://cdn.shopify.com/s/files/1/1182/4752/t/3/assets/vvv-faq-header-bg.png);
+        background-size: cover;
+        height: 170px;
+        text-align: center;
+        margin-bottom: 30px;
+
+        .arrow {
+            margin: auto;
+            width: 27px;
+            margin-top: 10px;
+        }
+
+        h1.page-header {
+            font-size: 2.4em;
+            font-family: 'georgia';
+            font-style: italic;
+            font-weight: 100;
+            letter-spacing: 3px;
+            border-bottom: 0px;
+            margin: 20px 0px;
+            text-transform: uppercase;
+        }
+    }
+
+    #questionnaire-container {
+        margin: 0px 15px;
+        min-height: 400px;
+
+        .quiz__questions {
+
+            margin-right: 15px;
+
+            #qmcontentText {
+                margin: 0 0 50px;
+                font-family: proxima_novasemibold;
+                font-size: 32px;
+
+                &.ta-center{
+                    text-align: center;
+                }
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            &.quiz__question1 {
+                li {
+                    list-style: none;
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    line-height: 30px;
+                    font-family: proxima_nova_rgregular;
+
+                    label span:not(:first-child) {
+                        padding: 0px 5px;
+                        position: relative;
+                        top: 1px;
+                    }
+                }
+            }
+
+            input[type="radio"] {
+                display: none;
+            }
+
+            input[type="radio"] + label span:first-child {
+                border: 1px solid black;
+                display: inline-block;
+                width: 19px;
+                height: 19px;
+                margin: -1px 4px 0 0;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+
+            input[type="radio"] + label span:first-child, input[type="radio"]:checked + label span:first-child {
+                -webkit-transition: background-color 0.4s linear;
+                -o-transition: background-color 0.4s linear;
+                -moz-transition: background-color 0.4s linear;
+                transition: background-color 0.4s linear;
+            }
+
+            .quiz-radio {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: 700;
+                    font-family: proxima_novasemibold;
+                    margin: 0;
+
+                    &.lighter {
+                        font-family: proxima_novalight;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+
+        label {
+
+            &.label-quiz {
+                background-size: cover;
+                border-radius: 100%;
+                height: 170px !important;
+                width: 170px !important;
+                transition: all 100ms ease-in;
+                background-repeat: no-repeat;
+                cursor: pointer;
+
+                &:hover {
+                    filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+                }
+
+                &.selectedItem {
+                    filter: brightness(1.2) grayscale(1) opacity(0.9) !important;
+                }
+
+                &.image-no-border-radius {
+                    background-size: contain;
+                    border-radius: 0;
+                }
+
+                &.q4 {
+                    height: 180px !important;
+                }
+
+                &.q5, &.q6 {
+                    height: 270px !important;
+                }
+            }
+        }
+
+    }
+
+
+
+    .questionnaire__pagination {
+        margin: 50px 0px;
+        min-height: 400px;
+        background: url(../images/vvv-vlog-bg.png);
+        clear: both;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+        font-family: 'proxima_nova_rgregular';
+
+        .pagination {
+            > li:first-child a {
+                margin-top: 30px;
+                border: 0px;
+                background: transparent;
+                font-size: 17px;
+                letter-spacing: 1px;
+                color: #000;
+                text-decoration: underline;
+                font-weight: 700;
+            }
+
+            > li:nth-child(2) {
+                > span {
+                    width: 68px;
+                    display: block;
+                }
+            }
+
+            > li:not(:first-child) {
+
+                > a, > span {
+                    display: inline;
+                    margin: 0 5px;
+                    text-align: center;
+                    color: #cccccc;
+                    padding: 20px 25px 26px;
+                    background-image: url(https://cdn.shopify.com/s/files/1/1182/4752/t/3/assets/quiz__pagination--incomplete.png) !important;
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                    background-color: transparent;
+                    border: none;
+                    font-size: 22px;
+                }
+
+                &.quiz__pagination--current, &.quiz__pagination--complete {
+                     > span {
+                        background-image: url(https://cdn.shopify.com/s/files/1/1182/4752/t/3/assets/quiz__pagination--complete.png) !important;
+                        background-repeat: no-repeat;
+                        background-size: 100%;
+                        color: black;
+                        background-color: transparent;
+                        border: 0;
+                        font-size: 22px;
+                        padding: 20px 25px 20px;
+                    }
+                }
+
+                &.quiz__pagination--current {
+                    > span {
+                        border-bottom: 4px solid #000;
+                    }
+                }
+            }
+        }
+
+        .quiz-pagination-bg {
+            flex: none;
+            position: absolute;
+            right: 0px;
+            height: 100%;
+
+            img {
+                height: 100%;
+            }
+        }
+
+
+    }
+
+    .image-q1o1 {
+        background-image: url(../images/image-q1o1.jpg)
+    }
+
+    .image-q1o2 {
+        background-image: url(../images/image-q1o2.jpg)
+    }
+
+    .image-q1o3 {
+        background-image: url(../images/image-q1o3.jpg)
+    }
+
+    .image-q1o4 {
+        background-image: url(../images/image-q1o4.jpg)
+    }
+
+    .image-q1o5 {
+        background-image: url(../images/image-q1o5.jpg)
+    }
+
+    .image-q1o6 {
+        background-image: url(../images/image-q1o6.jpg)
+    }
+
+    .image-q2o1 {
+        background-image: url(../images/image-q1o1.jpg)
+    }
+
+    .image-q2o2 {
+        background-image: url(../images/image-q1o2.jpg)
+    }
+
+    .image-q2o3 {
+        background-image: url(../images/image-q1o3.jpg)
+    }
+
+    .image-q2o4 {
+        background-image: url(../images/image-q1o4.jpg)
+    }
+
+    .image-q2o5 {
+        background-image: url(../images/image-q1o5.jpg)
+    }
+
+    .image-q2o6 {
+        background-image: url(../images/image-q1o6.jpg)
+    }
+
+    .image-q3o1 {
+        background-image: url(../images/image-q3o1.jpg)
+    }
+
+    .image-q3o2 {
+        background-image: url(../images/image-q3o2.jpg)
+    }
+
+    .image-q3o3 {
+        background-image: url(../images/image-q3o3.jpg)
+    }
+
+    .image-q3o4 {
+        background-image: url(../images/image-q3o4-v2.jpg)
+    }
+
+    .image-q3o5 {
+        background-image: url(../images/image-q3o5.jpg)
+    }
+
+    .image-q3o6 {
+        background-image: url(../images/image-q3o6.jpg)
+    }
+
+    .image-q4o1 {
+        background-image: url(../images/image-q4o1.jpg)
+    }
+
+    .image-q4o2 {
+        background-image: url(../images/image-q4o2.jpg)
+    }
+
+    .image-q4o3 {
+        background-image: url(../images/image-q4o3.jpg)
+    }
+
+    .image-q4o4 {
+        background-image: url(../images/image-q4o4.jpg)
+    }
+
+    .image-q4o5 {
+        background-image: url(../images/image-q4o5.jpg)
+    }
+
+    .image-q4o6 {
+        background-image: url(../images/image-q4o6.jpg)
+    }
+
+    .image-q5o1 {
+        background-image: url(../images/image-q1o1.jpg)
+    }
+
+    .image-q5o2 {
+        background-image: url(../images/image-q1o2.jpg)
+    }
+
+    .image-q5o3 {
+        background-image: url(../images/image-q1o3.jpg)
+    }
+
+    .image-q5o4 {
+        background-image: url(../images/image-q1o4.jpg)
+    }
+
+    .image-q5o5 {
+        background-image: url(../images/image-q1o5.jpg)
+    }
+
+    .image-q5o6 {
+        background-image: url(../images/image-q1o6.jpg)
+    }
+
+    .image-q6o1 {
+        background-image: url(../images/image-q1o4.jpg)
+    }
+
+    .image-q6o2 {
+        background-image: url(../images/image-q1o2.jpg)
+    }
+
+    .image-q6o3 {
+        background-image: url(../images/image-q1o6.jpg)
+    }
+
+    .image-q6o4 {
+        background-image: url(../images/image-q1o1.jpg)
+    }
+
+    .image-q6o5 {
+        background-image: url(../images/image-q1o3.jpg)
+    }
+
+    .image-q6o6 {
+        background-image: url(../images/image-q1o5.jpg)
+    }
+
+    .image-q7o1 {
+        background-image: url(../images/image-q1o1.jpg)
+    }
+
+    .image-q7o2 {
+        background-image: url(../images/image-q1o2.jpg)
+    }
+
+    .image-q7o3 {
+        background-image: url(../images/image-q1o3.jpg)
+    }
+
+    .image-q7o4 {
+        background-image: url(../images/image-q1o4.jpg)
+    }
+
+    .image-q7o5 {
+        background-image: url(../images/image-q1o5.jpg)
+    }
+
+    .image-q7o6 {
+        background-image: url(../images/image-q1o6.jpg)
+    }
+}

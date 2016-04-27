@@ -1,0 +1,135 @@
+
+.footer {
+    background-image: url(../images/vvv-vlog-bg.png);
+    background-size: contain;
+    
+    a, h4 {
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    
+    h4 {
+        font-weight: 900;
+        font-size: 18px;
+        margin-bottom: 35px;
+    }
+    
+    h5 {
+        color: #f16c9c !important;
+        letter-spacing: 1px;
+    }
+    
+    a {
+        color: #000;
+        font-family: 'proxima_nova_rgregular';
+        
+        &.go-to-top {
+            width: 350px;
+            
+            img {
+                width: 100%;
+            }
+        }
+    }
+    
+    p {
+        font-size: 12px;
+    }
+    
+    .container {
+        padding-top: 30px;
+    }
+    
+    .social-icons {
+        font-size: 12px;
+        margin: 100px 0 10px;
+        letter-spacing: 1.3px;
+        
+        .social-blurb {
+            margin: 1em 0;
+            font-size: 16px;
+            display: table;
+            text-transform: uppercase;
+        }
+        
+        img {
+            display: inline-block;
+            width: 30px;
+            margin-right: 5px;
+        }
+    }
+    
+    .nav {
+        li {
+            margin-top: 10px;
+        }
+        
+        > li {
+            > a {
+                position: relative;
+                display: block;
+                padding: 0;
+                
+                &:focus, &:hover {
+                    background-color: transparent;
+                    color: #4d4d4d;
+                }
+            }
+        }
+    }
+    
+    .gift-link {
+        img {
+            max-width: 85%;
+            margin-bottom: 30px;
+        }
+    }
+    
+    input#fieldEmail {
+        background: white;
+        text-transform: uppercase;
+        border: 1px solid black !important;
+        min-width: 261px;
+        padding: 20px 15px;
+        color: black;
+        
+        &:focus {
+            border-color: #675594;
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(103,85,148,0.6);
+        }
+    }
+    
+    span.input-group-btn {
+        text-align: right;
+        border: none;
+        padding-left: 10px;
+        border-radius: 0;
+        left: 1px;
+        position: relative;
+        font-size: 0;
+        white-space: nowrap;
+        
+        button {
+            background: #f16c9c;
+            color: white !important;
+            text-transform: uppercase;
+            text-align: right;
+            margin-top: 12px;
+            padding: 10px 27px;
+            letter-spacing: 2px;
+            border: 2.5px solid #cccccc;
+            font-size: 12px;
+        }
+    }
+    
+    .footer-credits {
+        margin-top: 15px;
+        margin-bottom: 40px;
+        font-size: 18px;
+        
+        a {
+            color: #999 !important;
+        }
+    }
+}

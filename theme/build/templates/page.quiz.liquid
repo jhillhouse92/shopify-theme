@@ -1,0 +1,2427 @@
+<div class="quiz-container"></div>
+
+<script>
+webpackJsonp([3],{
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(158);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _Quiz = __webpack_require__(224);
+
+	var _Quiz2 = _interopRequireDefault(_Quiz);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var questions = [{
+	    'id': 1,
+	    'text': '1. Uh oh– it’s the day before the big event and your closet is a black pit of despair. The outfit you desperately need is...',
+	    'questionType': 'single-image',
+	    'imageUrl': '//cdn.shopify.com/s/files/1/1182/4752/t/3/assets/quiz__q1main1.jpg?13287881187101057458',
+	    'answers': [{
+	        'style': 'classic-beauty',
+	        'text': 'Little Black Dress'
+	    }, {
+	        'style': 'la-femme-fatale',
+	        'text': 'Thigh High Slit'
+	    }, {
+	        'style': 'fun-flashy-flirty',
+	        'text': 'Patterned & Flirty'
+	    }, {
+	        'style': 'boho-glam',
+	        'text': 'Romantic & Dreamy'
+	    }, {
+	        'style': 'uptown-girl',
+	        'text': 'Serious Sequins'
+	    }, {
+	        'style': 'fierce-fresh',
+	        'text': 'Fitted Like A Glove'
+	    }]
+	}, {
+	    'id': 2,
+	    'text': '2. To accessorize that winning look, you add...',
+	    'questionType': 'multi-image',
+	    'answers': [{
+	        'style': 'classic-beauty',
+	        'text': 'Timeless pearls',
+	        'image': 'image-q2o4'
+	    }, {
+	        'style': 'fun-flashy-flirty',
+	        'text': 'Colorful statement pieces',
+	        'image': 'image-q2o1'
+	    }, {
+	        'style': 'uptown-girl',
+	        'text': 'Sparkle and shine',
+	        'image': 'image-q2o3'
+	    }, {
+	        'style': 'fierce-fresh',
+	        'text': 'Hoops, chains and spikes',
+	        'image': 'image-q2o2'
+	    }, {
+	        'style': 'boho-glam',
+	        'text': 'Whimsical and vintage-inspired jewelry',
+	        'image': 'image-q2o6'
+	    }, {
+	        'style': 'la-femme-fatale',
+	        'text': 'Deep V\'s and serpentine pieces',
+	        'image': 'image-q2o5'
+	    }]
+	}, {
+	    'id': 3,
+	    'text': '3. Nothing says pick-me-up quite like a trip to the nail salon. Your go-to shade is...',
+	    'questionType': 'multi-image',
+	    'answers': [{
+	        'style': 'classic-beauty',
+	        'text': 'Short & Red',
+	        'subText': 'Classic all the way',
+	        'image': 'image-q3o1'
+	    }, {
+	        'style': 'uptown-girl',
+	        'text': 'Glittered & Bedazzled',
+	        'subText': 'You show stopper, you',
+	        'image': 'image-q3o2'
+	    }, {
+	        'style': 'fierce-fresh',
+	        'text': 'Long & Pointed',
+	        'subText': 'RAWR! Street swag',
+	        'image': 'image-q3o3'
+	    }, {
+	        'style': 'la-femme-fatale',
+	        'text': 'Dark & Vampy',
+	        'subText': 'Mysterious and irresistible',
+	        'image': 'image-q3o4'
+	    }, {
+	        'style': 'boho-glam',
+	        'text': 'Muted Natural Shades',
+	        'subText': 'Keep it earthy girl',
+	        'image': 'image-q3o5'
+	    }, {
+	        'style': 'fun-flashy-flirty',
+	        'text': 'Vibrant & Artsy',
+	        'subText': 'Pop art like Warhol did those nails',
+	        'image': 'image-q3o6'
+	    }]
+	}, {
+	    'id': 4,
+	    'text': '4. Your phone case isn’t just practical, it also has it’s own flare. You’re sporting...',
+	    'questionType': 'multi-image',
+	    'answers': [{
+	        'style': 'classic-beauty',
+	        'text': 'Quilted Leather',
+	        'subText': 'Matches my purse',
+	        'image': 'image-q4o1'
+	    }, {
+	        'style': 'uptown-girl',
+	        'text': 'Crushed Crystals',
+	        'subText': 'That’s not the only thing that’s bedazzled',
+	        'image': 'image-q4o2'
+	    }, {
+	        'style': 'fierce-fresh',
+	        'text': 'Brass Knuckles',
+	        'subText': 'What, it’s versatile, OK?!',
+	        'image': 'image-q4o3'
+	    }, {
+	        'style': 'la-femme-fatale',
+	        'text': 'Snakeskin Print',
+	        'subText': 'No actual pythons were harmed in the making of this case',
+	        'image': 'image-q4o4'
+	    }, {
+	        'style': 'boho-glam',
+	        'text': 'Suede Tassels',
+	        'subText': 'Did Native Americans have phones?',
+	        'image': 'image-q4o5'
+	    }, {
+	        'style': 'fun-flashy-flirty',
+	        'text': 'Rabbit Ears',
+	        'subText': 'It\'s a bunny, you guys!',
+	        'image': 'image-q4o6'
+	    }]
+	}, {
+	    'id': 5,
+	    'text': '5. Whose closet would you love to raid?',
+	    'questionType': 'multi-image',
+	    'answers': [{
+	        'style': 'fun-flashy-flirty',
+	        'text': '',
+	        'image': 'image-q5o1'
+	    }, {
+	        'style': 'fierce-fresh',
+	        'text': '',
+	        'image': 'image-q5o2'
+	    }, {
+	        'style': 'uptown-girl',
+	        'text': '',
+	        'image': 'image-q5o3'
+	    }, {
+	        'style': 'classic-beauty',
+	        'text': '',
+	        'image': 'image-q5o4'
+	    }, {
+	        'style': 'la-femme-fatale',
+	        'text': '',
+	        'image': 'image-q5o5'
+	    }, {
+	        'style': 'boho-glam',
+	        'text': '',
+	        'image': 'image-q5o6'
+	    }]
+	}, {
+	    'id': 6,
+	    'text': '6. Your style mantra is…. (Select all that apply)',
+	    'questionType': 'multi-image',
+	    'answers': [{
+	        'style': 'classic-beauty',
+	        'text': 'Subtle & refined à la Breakfast at Tiffany’s',
+	        'image': 'image-q6o1'
+	    }, {
+	        'style': 'fierce-fresh',
+	        'text': 'Cool, downtown rebel',
+	        'image': 'image-q6o2'
+	    }, {
+	        'style': 'boho-glam',
+	        'text': 'Earthy, ethnic, ommmm',
+	        'image': 'image-q6o3'
+	    }, {
+	        'style': 'fun-flashy-flirty',
+	        'text': 'Prettied up and playful',
+	        'image': 'image-q6o4'
+	    }, {
+	        'style': 'uptown-girl',
+	        'text': 'Shine bright like a diamond',
+	        'image': 'image-q6o5'
+	    }, {
+	        'style': 'la-femme-fatale',
+	        'text': 'Seductive..all eyes on me',
+	        'image': 'image-q6o6'
+	    }]
+	}];
+
+	_reactDom2.default.render(_react2.default.createElement(_Quiz2.default, { questions: questions }), document.querySelector('.quiz-container'));
+
+/***/ },
+
+/***/ 200:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.REMOVE_FROM_CART = exports.ADDED_TO_CART = undefined;
+	exports.Register = Register;
+	exports.addToCart = addToCart;
+	exports.removeFromCart = removeFromCart;
+
+	var _axios = __webpack_require__(201);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//export const REGISTER = 'REGISTER';
+	var ADDED_TO_CART = exports.ADDED_TO_CART = 'ADDED_TO_CART';
+	var REMOVE_FROM_CART = exports.REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+
+	function Register(data) {
+	    var request = (0, _axios2.default)({
+	        method: 'post',
+	        url: '/account',
+	        responseType: 'text',
+	        data: data
+	    });
+
+	    /*return {
+	      type: FETCH_POSTS,
+	      payload: request
+	    };*/
+	    return request;
+	}
+
+	/*
+	 * This action adds items to the cart of state
+	 * TO DO: integrate with Shopify cart
+	*/
+	function addToCart(data) {
+
+	    return {
+	        type: ADDED_TO_CART,
+	        payload: data
+	    };
+	}
+
+	/*
+	 * This action adds items to the cart of state
+	 * TO DO: integrate with Shopify cart
+	*/
+	function removeFromCart(data) {
+
+	    return {
+	        type: REMOVE_FROM_CART,
+	        payload: data
+	    };
+	}
+
+/***/ },
+
+/***/ 201:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(202);
+
+/***/ },
+
+/***/ 202:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var defaults = __webpack_require__(203);
+	var utils = __webpack_require__(204);
+	var dispatchRequest = __webpack_require__(205);
+	var InterceptorManager = __webpack_require__(213);
+	var isAbsoluteURL = __webpack_require__(214);
+	var combineURLs = __webpack_require__(215);
+	var bind = __webpack_require__(216);
+	var transformData = __webpack_require__(209);
+
+	function Axios(defaultConfig) {
+	  this.defaults = utils.merge({}, defaultConfig);
+	  this.interceptors = {
+	    request: new InterceptorManager(),
+	    response: new InterceptorManager()
+	  };
+	}
+
+	Axios.prototype.request = function request(config) {
+	  /*eslint no-param-reassign:0*/
+	  // Allow for axios('example/url'[, config]) a la fetch API
+	  if (typeof config === 'string') {
+	    config = utils.merge({
+	      url: arguments[0]
+	    }, arguments[1]);
+	  }
+
+	  config = utils.merge(defaults, this.defaults, { method: 'get' }, config);
+
+	  // Support baseURL config
+	  if (config.baseURL && !isAbsoluteURL(config.url)) {
+	    config.url = combineURLs(config.baseURL, config.url);
+	  }
+
+	  // Don't allow overriding defaults.withCredentials
+	  config.withCredentials = config.withCredentials || this.defaults.withCredentials;
+
+	  // Transform request data
+	  config.data = transformData(
+	    config.data,
+	    config.headers,
+	    config.transformRequest
+	  );
+
+	  // Flatten headers
+	  config.headers = utils.merge(
+	    config.headers.common || {},
+	    config.headers[config.method] || {},
+	    config.headers || {}
+	  );
+
+	  utils.forEach(
+	    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
+	    function cleanHeaderConfig(method) {
+	      delete config.headers[method];
+	    }
+	  );
+
+	  // Hook up interceptors middleware
+	  var chain = [dispatchRequest, undefined];
+	  var promise = Promise.resolve(config);
+
+	  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+	    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+	  });
+
+	  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+	    chain.push(interceptor.fulfilled, interceptor.rejected);
+	  });
+
+	  while (chain.length) {
+	    promise = promise.then(chain.shift(), chain.shift());
+	  }
+
+	  return promise;
+	};
+
+	var defaultInstance = new Axios(defaults);
+	var axios = module.exports = bind(Axios.prototype.request, defaultInstance);
+
+	axios.create = function create(defaultConfig) {
+	  return new Axios(defaultConfig);
+	};
+
+	// Expose defaults
+	axios.defaults = defaultInstance.defaults;
+
+	// Expose all/spread
+	axios.all = function all(promises) {
+	  return Promise.all(promises);
+	};
+	axios.spread = __webpack_require__(217);
+
+	// Expose interceptors
+	axios.interceptors = defaultInstance.interceptors;
+
+	// Provide aliases for supported request methods
+	utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+	  /*eslint func-names:0*/
+	  Axios.prototype[method] = function(url, config) {
+	    return this.request(utils.merge(config || {}, {
+	      method: method,
+	      url: url
+	    }));
+	  };
+	  axios[method] = bind(Axios.prototype[method], defaultInstance);
+	});
+
+	utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+	  /*eslint func-names:0*/
+	  Axios.prototype[method] = function(url, data, config) {
+	    return this.request(utils.merge(config || {}, {
+	      method: method,
+	      url: url,
+	      data: data
+	    }));
+	  };
+	  axios[method] = bind(Axios.prototype[method], defaultInstance);
+	});
+
+
+/***/ },
+
+/***/ 203:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(204);
+
+	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
+	var DEFAULT_CONTENT_TYPE = {
+	  'Content-Type': 'application/x-www-form-urlencoded'
+	};
+
+	module.exports = {
+	  transformRequest: [function transformResponseJSON(data, headers) {
+	    if (utils.isFormData(data)) {
+	      return data;
+	    }
+	    if (utils.isArrayBuffer(data)) {
+	      return data;
+	    }
+	    if (utils.isArrayBufferView(data)) {
+	      return data.buffer;
+	    }
+	    if (utils.isObject(data) && !utils.isFile(data) && !utils.isBlob(data)) {
+	      // Set application/json if no Content-Type has been specified
+	      if (!utils.isUndefined(headers)) {
+	        utils.forEach(headers, function processContentTypeHeader(val, key) {
+	          if (key.toLowerCase() === 'content-type') {
+	            headers['Content-Type'] = val;
+	          }
+	        });
+
+	        if (utils.isUndefined(headers['Content-Type'])) {
+	          headers['Content-Type'] = 'application/json;charset=utf-8';
+	        }
+	      }
+	      return JSON.stringify(data);
+	    }
+	    return data;
+	  }],
+
+	  transformResponse: [function transformResponseJSON(data) {
+	    /*eslint no-param-reassign:0*/
+	    if (typeof data === 'string') {
+	      data = data.replace(PROTECTION_PREFIX, '');
+	      try {
+	        data = JSON.parse(data);
+	      } catch (e) { /* Ignore */ }
+	    }
+	    return data;
+	  }],
+
+	  headers: {
+	    common: {
+	      'Accept': 'application/json, text/plain, */*'
+	    },
+	    patch: utils.merge(DEFAULT_CONTENT_TYPE),
+	    post: utils.merge(DEFAULT_CONTENT_TYPE),
+	    put: utils.merge(DEFAULT_CONTENT_TYPE)
+	  },
+
+	  timeout: 0,
+
+	  xsrfCookieName: 'XSRF-TOKEN',
+	  xsrfHeaderName: 'X-XSRF-TOKEN'
+	};
+
+
+/***/ },
+
+/***/ 204:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/*global toString:true*/
+
+	// utils is a library of generic helper functions non-specific to axios
+
+	var toString = Object.prototype.toString;
+
+	/**
+	 * Determine if a value is an Array
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an Array, otherwise false
+	 */
+	function isArray(val) {
+	  return toString.call(val) === '[object Array]';
+	}
+
+	/**
+	 * Determine if a value is an ArrayBuffer
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+	 */
+	function isArrayBuffer(val) {
+	  return toString.call(val) === '[object ArrayBuffer]';
+	}
+
+	/**
+	 * Determine if a value is a FormData
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an FormData, otherwise false
+	 */
+	function isFormData(val) {
+	  return toString.call(val) === '[object FormData]';
+	}
+
+	/**
+	 * Determine if a value is a view on an ArrayBuffer
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+	 */
+	function isArrayBufferView(val) {
+	  var result;
+	  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
+	    result = ArrayBuffer.isView(val);
+	  } else {
+	    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
+	  }
+	  return result;
+	}
+
+	/**
+	 * Determine if a value is a String
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a String, otherwise false
+	 */
+	function isString(val) {
+	  return typeof val === 'string';
+	}
+
+	/**
+	 * Determine if a value is a Number
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Number, otherwise false
+	 */
+	function isNumber(val) {
+	  return typeof val === 'number';
+	}
+
+	/**
+	 * Determine if a value is undefined
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if the value is undefined, otherwise false
+	 */
+	function isUndefined(val) {
+	  return typeof val === 'undefined';
+	}
+
+	/**
+	 * Determine if a value is an Object
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an Object, otherwise false
+	 */
+	function isObject(val) {
+	  return val !== null && typeof val === 'object';
+	}
+
+	/**
+	 * Determine if a value is a Date
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Date, otherwise false
+	 */
+	function isDate(val) {
+	  return toString.call(val) === '[object Date]';
+	}
+
+	/**
+	 * Determine if a value is a File
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a File, otherwise false
+	 */
+	function isFile(val) {
+	  return toString.call(val) === '[object File]';
+	}
+
+	/**
+	 * Determine if a value is a Blob
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Blob, otherwise false
+	 */
+	function isBlob(val) {
+	  return toString.call(val) === '[object Blob]';
+	}
+
+	/**
+	 * Trim excess whitespace off the beginning and end of a string
+	 *
+	 * @param {String} str The String to trim
+	 * @returns {String} The String freed of excess whitespace
+	 */
+	function trim(str) {
+	  return str.replace(/^\s*/, '').replace(/\s*$/, '');
+	}
+
+	/**
+	 * Determine if we're running in a standard browser environment
+	 *
+	 * This allows axios to run in a web worker, and react-native.
+	 * Both environments support XMLHttpRequest, but not fully standard globals.
+	 *
+	 * web workers:
+	 *  typeof window -> undefined
+	 *  typeof document -> undefined
+	 *
+	 * react-native:
+	 *  typeof document.createElement -> undefined
+	 */
+	function isStandardBrowserEnv() {
+	  return (
+	    typeof window !== 'undefined' &&
+	    typeof document !== 'undefined' &&
+	    typeof document.createElement === 'function'
+	  );
+	}
+
+	/**
+	 * Iterate over an Array or an Object invoking a function for each item.
+	 *
+	 * If `obj` is an Array callback will be called passing
+	 * the value, index, and complete array for each item.
+	 *
+	 * If 'obj' is an Object callback will be called passing
+	 * the value, key, and complete object for each property.
+	 *
+	 * @param {Object|Array} obj The object to iterate
+	 * @param {Function} fn The callback to invoke for each item
+	 */
+	function forEach(obj, fn) {
+	  // Don't bother if no value provided
+	  if (obj === null || typeof obj === 'undefined') {
+	    return;
+	  }
+
+	  // Force an array if not already something iterable
+	  if (typeof obj !== 'object' && !isArray(obj)) {
+	    /*eslint no-param-reassign:0*/
+	    obj = [obj];
+	  }
+
+	  if (isArray(obj)) {
+	    // Iterate over array values
+	    for (var i = 0, l = obj.length; i < l; i++) {
+	      fn.call(null, obj[i], i, obj);
+	    }
+	  } else {
+	    // Iterate over object keys
+	    for (var key in obj) {
+	      if (obj.hasOwnProperty(key)) {
+	        fn.call(null, obj[key], key, obj);
+	      }
+	    }
+	  }
+	}
+
+	/**
+	 * Accepts varargs expecting each argument to be an object, then
+	 * immutably merges the properties of each object and returns result.
+	 *
+	 * When multiple objects contain the same key the later object in
+	 * the arguments list will take precedence.
+	 *
+	 * Example:
+	 *
+	 * ```js
+	 * var result = merge({foo: 123}, {foo: 456});
+	 * console.log(result.foo); // outputs 456
+	 * ```
+	 *
+	 * @param {Object} obj1 Object to merge
+	 * @returns {Object} Result of all merge properties
+	 */
+	function merge(/* obj1, obj2, obj3, ... */) {
+	  var result = {};
+	  function assignValue(val, key) {
+	    if (typeof result[key] === 'object' && typeof val === 'object') {
+	      result[key] = merge(result[key], val);
+	    } else {
+	      result[key] = val;
+	    }
+	  }
+
+	  for (var i = 0, l = arguments.length; i < l; i++) {
+	    forEach(arguments[i], assignValue);
+	  }
+	  return result;
+	}
+
+	module.exports = {
+	  isArray: isArray,
+	  isArrayBuffer: isArrayBuffer,
+	  isFormData: isFormData,
+	  isArrayBufferView: isArrayBufferView,
+	  isString: isString,
+	  isNumber: isNumber,
+	  isObject: isObject,
+	  isUndefined: isUndefined,
+	  isDate: isDate,
+	  isFile: isFile,
+	  isBlob: isBlob,
+	  isStandardBrowserEnv: isStandardBrowserEnv,
+	  forEach: forEach,
+	  merge: merge,
+	  trim: trim
+	};
+
+
+/***/ },
+
+/***/ 205:
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+	/**
+	 * Dispatch a request to the server using whichever adapter
+	 * is supported by the current environment.
+	 *
+	 * @param {object} config The config that is to be used for the request
+	 * @returns {Promise} The Promise to be fulfilled
+	 */
+	module.exports = function dispatchRequest(config) {
+	  return new Promise(function executor(resolve, reject) {
+	    try {
+	      var adapter;
+
+	      if (typeof config.adapter === 'function') {
+	        // For custom adapter support
+	        adapter = config.adapter;
+	      } else if (typeof XMLHttpRequest !== 'undefined') {
+	        // For browsers use XHR adapter
+	        adapter = __webpack_require__(206);
+	      } else if (typeof process !== 'undefined') {
+	        // For node use HTTP adapter
+	        adapter = __webpack_require__(206);
+	      }
+
+	      if (typeof adapter === 'function') {
+	        adapter(resolve, reject, config);
+	      }
+	    } catch (e) {
+	      reject(e);
+	    }
+	  });
+	};
+
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+
+/***/ 206:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(204);
+	var buildURL = __webpack_require__(207);
+	var parseHeaders = __webpack_require__(208);
+	var transformData = __webpack_require__(209);
+	var isURLSameOrigin = __webpack_require__(210);
+	var btoa = window.btoa || __webpack_require__(211);
+
+	module.exports = function xhrAdapter(resolve, reject, config) {
+	  var requestData = config.data;
+	  var requestHeaders = config.headers;
+
+	  if (utils.isFormData(requestData)) {
+	    delete requestHeaders['Content-Type']; // Let the browser set it
+	  }
+
+	  var request = new XMLHttpRequest();
+
+	  // For IE 8/9 CORS support
+	  // Only supports POST and GET calls and doesn't returns the response headers.
+	  if (window.XDomainRequest && !('withCredentials' in request) && !isURLSameOrigin(config.url)) {
+	    request = new window.XDomainRequest();
+	  }
+
+	  // HTTP basic authentication
+	  if (config.auth) {
+	    var username = config.auth.username || '';
+	    var password = config.auth.password || '';
+	    requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+	  }
+
+	  request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
+
+	  // Set the request timeout in MS
+	  request.timeout = config.timeout;
+
+	  // Listen for ready state
+	  request.onload = function handleLoad() {
+	    if (!request) {
+	      return;
+	    }
+	    // Prepare the response
+	    var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+	    var responseData = ['text', ''].indexOf(config.responseType || '') !== -1 ? request.responseText : request.response;
+	    var response = {
+	      data: transformData(
+	        responseData,
+	        responseHeaders,
+	        config.transformResponse
+	      ),
+	      // IE sends 1223 instead of 204 (https://github.com/mzabriskie/axios/issues/201)
+	      status: request.status === 1223 ? 204 : request.status,
+	      statusText: request.status === 1223 ? 'No Content' : request.statusText,
+	      headers: responseHeaders,
+	      config: config
+	    };
+
+	    // Resolve or reject the Promise based on the status
+	    ((response.status >= 200 && response.status < 300) ||
+	     (!('status' in request) && response.responseText) ?
+	      resolve :
+	      reject)(response);
+
+	    // Clean up request
+	    request = null;
+	  };
+
+	  // Handle low level network errors
+	  request.onerror = function handleError() {
+	    // Real errors are hidden from us by the browser
+	    // onerror should only fire if it's a network error
+	    reject(new Error('Network Error'));
+
+	    // Clean up request
+	    request = null;
+	  };
+
+	  // Add xsrf header
+	  // This is only done if running in a standard browser environment.
+	  // Specifically not if we're in a web worker, or react-native.
+	  if (utils.isStandardBrowserEnv()) {
+	    var cookies = __webpack_require__(212);
+
+	    // Add xsrf header
+	    var xsrfValue = config.withCredentials || isURLSameOrigin(config.url) ?
+	        cookies.read(config.xsrfCookieName) :
+	        undefined;
+
+	    if (xsrfValue) {
+	      requestHeaders[config.xsrfHeaderName] = xsrfValue;
+	    }
+	  }
+
+	  // Add headers to the request
+	  if ('setRequestHeader' in request) {
+	    utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+	      if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+	        // Remove Content-Type if data is undefined
+	        delete requestHeaders[key];
+	      } else {
+	        // Otherwise add header to the request
+	        request.setRequestHeader(key, val);
+	      }
+	    });
+	  }
+
+	  // Add withCredentials to request if needed
+	  if (config.withCredentials) {
+	    request.withCredentials = true;
+	  }
+
+	  // Add responseType to request if needed
+	  if (config.responseType) {
+	    try {
+	      request.responseType = config.responseType;
+	    } catch (e) {
+	      if (request.responseType !== 'json') {
+	        throw e;
+	      }
+	    }
+	  }
+
+	  if (utils.isArrayBuffer(requestData)) {
+	    requestData = new DataView(requestData);
+	  }
+
+	  // Send the request
+	  request.send(requestData);
+	};
+
+
+/***/ },
+
+/***/ 207:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(204);
+
+	function encode(val) {
+	  return encodeURIComponent(val).
+	    replace(/%40/gi, '@').
+	    replace(/%3A/gi, ':').
+	    replace(/%24/g, '$').
+	    replace(/%2C/gi, ',').
+	    replace(/%20/g, '+').
+	    replace(/%5B/gi, '[').
+	    replace(/%5D/gi, ']');
+	}
+
+	/**
+	 * Build a URL by appending params to the end
+	 *
+	 * @param {string} url The base of the url (e.g., http://www.google.com)
+	 * @param {object} [params] The params to be appended
+	 * @returns {string} The formatted url
+	 */
+	module.exports = function buildURL(url, params, paramsSerializer) {
+	  /*eslint no-param-reassign:0*/
+	  if (!params) {
+	    return url;
+	  }
+
+	  var serializedParams;
+	  if (paramsSerializer) {
+	    serializedParams = paramsSerializer(params);
+	  } else {
+	    var parts = [];
+
+	    utils.forEach(params, function serialize(val, key) {
+	      if (val === null || typeof val === 'undefined') {
+	        return;
+	      }
+
+	      if (utils.isArray(val)) {
+	        key = key + '[]';
+	      }
+
+	      if (!utils.isArray(val)) {
+	        val = [val];
+	      }
+
+	      utils.forEach(val, function parseValue(v) {
+	        if (utils.isDate(v)) {
+	          v = v.toISOString();
+	        } else if (utils.isObject(v)) {
+	          v = JSON.stringify(v);
+	        }
+	        parts.push(encode(key) + '=' + encode(v));
+	      });
+	    });
+
+	    serializedParams = parts.join('&');
+	  }
+
+	  if (serializedParams) {
+	    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+	  }
+
+	  return url;
+	};
+
+
+
+/***/ },
+
+/***/ 208:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(204);
+
+	/**
+	 * Parse headers into an object
+	 *
+	 * ```
+	 * Date: Wed, 27 Aug 2014 08:58:49 GMT
+	 * Content-Type: application/json
+	 * Connection: keep-alive
+	 * Transfer-Encoding: chunked
+	 * ```
+	 *
+	 * @param {String} headers Headers needing to be parsed
+	 * @returns {Object} Headers parsed into an object
+	 */
+	module.exports = function parseHeaders(headers) {
+	  var parsed = {};
+	  var key;
+	  var val;
+	  var i;
+
+	  if (!headers) { return parsed; }
+
+	  utils.forEach(headers.split('\n'), function parser(line) {
+	    i = line.indexOf(':');
+	    key = utils.trim(line.substr(0, i)).toLowerCase();
+	    val = utils.trim(line.substr(i + 1));
+
+	    if (key) {
+	      parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+	    }
+	  });
+
+	  return parsed;
+	};
+
+
+/***/ },
+
+/***/ 209:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(204);
+
+	/**
+	 * Transform the data for a request or a response
+	 *
+	 * @param {Object|String} data The data to be transformed
+	 * @param {Array} headers The headers for the request or response
+	 * @param {Array|Function} fns A single function or Array of functions
+	 * @returns {*} The resulting transformed data
+	 */
+	module.exports = function transformData(data, headers, fns) {
+	  /*eslint no-param-reassign:0*/
+	  utils.forEach(fns, function transform(fn) {
+	    data = fn(data, headers);
+	  });
+
+	  return data;
+	};
+
+
+/***/ },
+
+/***/ 210:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(204);
+
+	module.exports = (
+	  utils.isStandardBrowserEnv() ?
+
+	  // Standard browser envs have full support of the APIs needed to test
+	  // whether the request URL is of the same origin as current location.
+	  (function standardBrowserEnv() {
+	    var msie = /(msie|trident)/i.test(navigator.userAgent);
+	    var urlParsingNode = document.createElement('a');
+	    var originURL;
+
+	    /**
+	    * Parse a URL to discover it's components
+	    *
+	    * @param {String} url The URL to be parsed
+	    * @returns {Object}
+	    */
+	    function resolveURL(url) {
+	      var href = url;
+
+	      if (msie) {
+	        // IE needs attribute set twice to normalize properties
+	        urlParsingNode.setAttribute('href', href);
+	        href = urlParsingNode.href;
+	      }
+
+	      urlParsingNode.setAttribute('href', href);
+
+	      // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+	      return {
+	        href: urlParsingNode.href,
+	        protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+	        host: urlParsingNode.host,
+	        search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+	        hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+	        hostname: urlParsingNode.hostname,
+	        port: urlParsingNode.port,
+	        pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+	                  urlParsingNode.pathname :
+	                  '/' + urlParsingNode.pathname
+	      };
+	    }
+
+	    originURL = resolveURL(window.location.href);
+
+	    /**
+	    * Determine if a URL shares the same origin as the current location
+	    *
+	    * @param {String} requestURL The URL to test
+	    * @returns {boolean} True if URL shares the same origin, otherwise false
+	    */
+	    return function isURLSameOrigin(requestURL) {
+	      var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+	      return (parsed.protocol === originURL.protocol &&
+	            parsed.host === originURL.host);
+	    };
+	  })() :
+
+	  // Non standard browser envs (web workers, react-native) lack needed support.
+	  (function nonStandardBrowserEnv() {
+	    return function isURLSameOrigin() {
+	      return true;
+	    };
+	  })()
+	);
+
+
+/***/ },
+
+/***/ 211:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
+
+	var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+	function InvalidCharacterError(message) {
+	  this.message = message;
+	}
+	InvalidCharacterError.prototype = new Error;
+	InvalidCharacterError.prototype.code = 5;
+	InvalidCharacterError.prototype.name = 'InvalidCharacterError';
+
+	function btoa(input) {
+	  var str = String(input);
+	  var output = '';
+	  for (
+	    // initialize result and counter
+	    var block, charCode, idx = 0, map = chars;
+	    // if the next str index does not exist:
+	    //   change the mapping table to "="
+	    //   check if d has no fractional digits
+	    str.charAt(idx | 0) || (map = '=', idx % 1);
+	    // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
+	    output += map.charAt(63 & block >> 8 - idx % 1 * 8)
+	  ) {
+	    charCode = str.charCodeAt(idx += 3 / 4);
+	    if (charCode > 0xFF) {
+	      throw new InvalidCharacterError('INVALID_CHARACTER_ERR: DOM Exception 5');
+	    }
+	    block = block << 8 | charCode;
+	  }
+	  return output;
+	}
+
+	module.exports = btoa;
+
+
+/***/ },
+
+/***/ 212:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(204);
+
+	module.exports = (
+	  utils.isStandardBrowserEnv() ?
+
+	  // Standard browser envs support document.cookie
+	  (function standardBrowserEnv() {
+	    return {
+	      write: function write(name, value, expires, path, domain, secure) {
+	        var cookie = [];
+	        cookie.push(name + '=' + encodeURIComponent(value));
+
+	        if (utils.isNumber(expires)) {
+	          cookie.push('expires=' + new Date(expires).toGMTString());
+	        }
+
+	        if (utils.isString(path)) {
+	          cookie.push('path=' + path);
+	        }
+
+	        if (utils.isString(domain)) {
+	          cookie.push('domain=' + domain);
+	        }
+
+	        if (secure === true) {
+	          cookie.push('secure');
+	        }
+
+	        document.cookie = cookie.join('; ');
+	      },
+
+	      read: function read(name) {
+	        var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+	        return (match ? decodeURIComponent(match[3]) : null);
+	      },
+
+	      remove: function remove(name) {
+	        this.write(name, '', Date.now() - 86400000);
+	      }
+	    };
+	  })() :
+
+	  // Non standard browser env (web workers, react-native) lack needed support.
+	  (function nonStandardBrowserEnv() {
+	    return {
+	      write: function write() {},
+	      read: function read() { return null; },
+	      remove: function remove() {}
+	    };
+	  })()
+	);
+
+
+/***/ },
+
+/***/ 213:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(204);
+
+	function InterceptorManager() {
+	  this.handlers = [];
+	}
+
+	/**
+	 * Add a new interceptor to the stack
+	 *
+	 * @param {Function} fulfilled The function to handle `then` for a `Promise`
+	 * @param {Function} rejected The function to handle `reject` for a `Promise`
+	 *
+	 * @return {Number} An ID used to remove interceptor later
+	 */
+	InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+	  this.handlers.push({
+	    fulfilled: fulfilled,
+	    rejected: rejected
+	  });
+	  return this.handlers.length - 1;
+	};
+
+	/**
+	 * Remove an interceptor from the stack
+	 *
+	 * @param {Number} id The ID that was returned by `use`
+	 */
+	InterceptorManager.prototype.eject = function eject(id) {
+	  if (this.handlers[id]) {
+	    this.handlers[id] = null;
+	  }
+	};
+
+	/**
+	 * Iterate over all the registered interceptors
+	 *
+	 * This method is particularly useful for skipping over any
+	 * interceptors that may have become `null` calling `eject`.
+	 *
+	 * @param {Function} fn The function to call for each interceptor
+	 */
+	InterceptorManager.prototype.forEach = function forEach(fn) {
+	  utils.forEach(this.handlers, function forEachHandler(h) {
+	    if (h !== null) {
+	      fn(h);
+	    }
+	  });
+	};
+
+	module.exports = InterceptorManager;
+
+
+/***/ },
+
+/***/ 214:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Determines whether the specified URL is absolute
+	 *
+	 * @param {string} url The URL to test
+	 * @returns {boolean} True if the specified URL is absolute, otherwise false
+	 */
+	module.exports = function isAbsoluteURL(url) {
+	  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+	  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+	  // by any combination of letters, digits, plus, period, or hyphen.
+	  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+	};
+
+
+/***/ },
+
+/***/ 215:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Creates a new URL by combining the specified URLs
+	 *
+	 * @param {string} baseURL The base URL
+	 * @param {string} relativeURL The relative URL
+	 * @returns {string} The combined URL
+	 */
+	module.exports = function combineURLs(baseURL, relativeURL) {
+	  return baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '');
+	};
+
+
+/***/ },
+
+/***/ 216:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function bind(fn, thisArg) {
+	  return function wrap() {
+	    var args = new Array(arguments.length);
+	    for (var i = 0; i < args.length; i++) {
+	      args[i] = arguments[i];
+	    }
+	    return fn.apply(thisArg, args);
+	  };
+	};
+
+
+/***/ },
+
+/***/ 217:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Syntactic sugar for invoking a function and expanding an array for arguments.
+	 *
+	 * Common use case would be to use `Function.prototype.apply`.
+	 *
+	 *  ```js
+	 *  function f(x, y, z) {}
+	 *  var args = [1, 2, 3];
+	 *  f.apply(null, args);
+	 *  ```
+	 *
+	 * With `spread` this example can be re-written.
+	 *
+	 *  ```js
+	 *  spread(function(x, y, z) {})([1, 2, 3]);
+	 *  ```
+	 *
+	 * @param {Function} callback
+	 * @returns {Function}
+	 */
+	module.exports = function spread(callback) {
+	  return function wrap(arr) {
+	    return callback.apply(null, arr);
+	  };
+	};
+
+
+/***/ },
+
+/***/ 219:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Modal = function (_Component) {
+	    _inherits(Modal, _Component);
+
+	    function Modal(props) {
+	        _classCallCheck(this, Modal);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Modal).call(this, props));
+
+	        _this.customStyles = {
+	            overlay: {
+	                backgroundColor: 'rgba(0, 0, 0, 0.5)'
+	            },
+	            content: {
+	                border: '0',
+	                background: 'transparent'
+	            }
+	        };
+
+	        _this.state = { isOpen: false, afterOpen: false, beforeClose: false };
+	        _this.open = _this.open.bind(_this);
+	        _this.close = _this.close.bind(_this);
+	        _this.closeWithTimeout = _this.closeWithTimeout.bind(_this);
+	        _this.closeWithoutTimeout = _this.closeWithoutTimeout.bind(_this);
+	        _this.handleOverlayClick = _this.handleOverlayClick.bind(_this);
+	        _this.focusContent = _this.focusContent.bind(_this);
+	        _this.requestClose = _this.requestClose.bind(_this);
+	        _this.ownerHandlesClose = _this.ownerHandlesClose.bind(_this);
+	        _this.shouldBeClosed = _this.shouldBeClosed.bind(_this);
+
+	        return _this;
+	    }
+
+	    _createClass(Modal, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            if (this.props.isOpen) {
+	                this.open();
+	            }
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(newProps) {
+	            // Focus only needs to be set once when the modal is being opened
+	            if (!this.props.isOpen && newProps.isOpen) {
+	                this.open();
+	            } else if (this.props.isOpen && !newProps.isOpen) {
+	                this.close();
+	            }
+	        }
+	    }, {
+	        key: 'close',
+	        value: function close() {
+	            if (!this.ownerHandlesClose()) {
+	                return;
+	            }
+
+	            if (this.props.closeTimeoutMS > 0) {
+	                this.closeWithTimeout();
+	            } else {
+	                this.closeWithoutTimeout();
+	            }
+	        }
+	    }, {
+	        key: 'closeWithTimeout',
+	        value: function closeWithTimeout() {
+	            this.setState({ beforeClose: true }, function () {
+	                this.closeTimer = setTimeout(this.closeWithoutTimeout, this.props.closeTimeoutMS);
+	            }.bind(this));
+	        }
+	    }, {
+	        key: 'closeWithoutTimeout',
+	        value: function closeWithoutTimeout() {
+	            this.setState({
+	                isOpen: false,
+	                afterOpen: false,
+	                beforeClose: false
+	            });
+	        }
+	    }, {
+	        key: 'handleOverlayClick',
+	        value: function handleOverlayClick(event) {
+	            var node = event.target;
+
+	            while (node) {
+	                if (node === this.refs.content) {
+	                    return;
+	                }
+
+	                node = node.parentNode;
+	            }
+
+	            if (this.props.shouldCloseOnOverlayClick) {
+	                if (this.ownerHandlesClose()) {
+	                    this.requestClose();
+	                } else {
+	                    this.focusContent();
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'focusContent',
+	        value: function focusContent() {
+	            this.refs.content.focus();
+	        }
+	    }, {
+	        key: 'requestClose',
+	        value: function requestClose() {
+	            if (this.ownerHandlesClose()) {
+	                this.props.onRequestClose();
+	            }
+	        }
+	    }, {
+	        key: 'ownerHandlesClose',
+	        value: function ownerHandlesClose() {
+	            return this.props.onRequestClose;
+	        }
+	    }, {
+	        key: 'shouldBeClosed',
+	        value: function shouldBeClosed() {
+	            return !this.props.isOpen && !this.state.beforeClose;
+	        }
+	    }, {
+	        key: 'open',
+	        value: function open() {
+	            this.setState({ isOpen: true }, function () {
+	                var _this2 = this;
+
+	                setTimeout(function () {
+	                    return _this2.setState({ afterOpen: true });
+	                }, 500);
+	            }.bind(this));
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var modalOverlayStyle = {
+	                position: 'fixed',
+	                top: '0px',
+	                left: '0px',
+	                right: '0px',
+	                bottom: '0px',
+	                backgroundColor: 'rgba(0, 0, 0, 0.5)'
+	            };
+
+	            var modalContentStyle = {
+	                position: 'fixed',
+	                top: '134px', //there is an additional 94px offset for the fixed menu
+	                left: '40px',
+	                right: '40px',
+	                border: '0px',
+	                background: 'transparent',
+	                overflow: 'auto',
+	                overflowScrolling: 'touch',
+	                outline: 'none',
+	                padding: '20px'
+	            };
+
+	            var modalClasses = '';
+
+	            modalClasses += this.state.isOpen ? 'ReactModal__Overlay' : '';
+
+	            modalClasses += this.state.afterOpen ? ' ReactModal__Overlay--after-open' : '';
+
+	            modalClasses += this.state.beforeClose ? ' ReactModal__Overlay--before-close' : '';
+
+	            var modalContentClasses = this.props.className;
+
+	            modalContentClasses += this.state.isOpen ? ' ReactModal__Content' : '';
+
+	            modalContentClasses += this.state.afterOpen ? ' ReactModal__Content--after-open' : '';
+
+	            modalContentClasses += this.state.beforeClose ? ' ReactModal__Content--before-close' : '';
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: this.state.isOpen ? '' : 'hide ' + 'ReactModalPortal' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: modalClasses, style: modalOverlayStyle, onClick: this.handleOverlayClick },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { style: modalContentStyle, className: modalContentClasses, tabIndex: '-1', ref: 'content' },
+	                        this.props.children
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Modal;
+	}(_react.Component);
+
+	Modal.propTypes = {
+	    className: _react2.default.PropTypes.string,
+	    isOpen: _react2.default.PropTypes.bool,
+	    children: _react2.default.PropTypes.element,
+	    closeTimeoutMS: _react2.default.PropTypes.number,
+	    shouldCloseOnOverlayClick: _react2.default.PropTypes.bool,
+	    onRequestClose: _react2.default.PropTypes.func
+	};
+
+	Modal.defaultProps = {
+	    shouldCloseOnOverlayClick: true
+	};
+
+	exports.default = Modal;
+
+/***/ },
+
+/***/ 224:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Question = __webpack_require__(225);
+
+	var _Question2 = _interopRequireDefault(_Question);
+
+	var _QuizPagination = __webpack_require__(227);
+
+	var _QuizPagination2 = _interopRequireDefault(_QuizPagination);
+
+	var _QuizRegistration = __webpack_require__(228);
+
+	var _QuizRegistration2 = _interopRequireDefault(_QuizRegistration);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Quiz = function (_Component) {
+	    _inherits(Quiz, _Component);
+
+	    function Quiz(props) {
+	        _classCallCheck(this, Quiz);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Quiz).call(this, props));
+
+	        _this.state = {
+	            currentQuestion: 0,
+	            score: {
+	                'classic-beauty': 0,
+	                'la-femme-fatale': 0,
+	                'fun-flashy-flirty': 0,
+	                'boho-glam': 0,
+	                'uptown-girl': 0,
+	                'fierce-fresh': 0
+	            },
+	            answers: [],
+	            modalIsOpen: false
+	        };
+
+	        _this.handleAnswerQuestion = _this.handleAnswerQuestion.bind(_this);
+	        _this.goBack = _this.goBack.bind(_this);
+	        _this.openModal = _this.openModal.bind(_this);
+	        _this.closeModal = _this.closeModal.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(Quiz, [{
+	        key: 'handleAnswerQuestion',
+	        value: function handleAnswerQuestion(answer) {
+	            var _this2 = this;
+
+	            //get the score object from the state
+	            var scoreObj = Object.assign({}, this.state.score); //this copies the object instead of the reference
+	            var score = 0; //initialize score
+	            var currentQuestion = this.state.currentQuestion;
+	            var answers = this.state.answers.slice(0);
+
+	            //update the current score and answers
+	            if (answer instanceof Array) {
+	                answer.map(function (key) {
+	                    score = scoreObj[key] + 1; //this gets the specific style score from the state and increases it by 1
+	                    scoreObj[key] = score;
+	                });
+	                answers.push.apply(answers, _toConsumableArray(answer));
+	            } else {
+	                score = scoreObj[answer] + 1; //this gets the specific style score from the state and increases it by 1
+	                scoreObj[answer] = score;
+	                answers.push(answer);
+	            }
+
+	            //if this is the end of the quiz, do not update the state as that will break it without a question being there
+	            //the currentQuestion will be 5 because it hasn't updated to 6 (which would be question 7 since the question is 0-based)
+	            if (currentQuestion === 5) {
+	                (function () {
+	                    var winner = {};
+	                    var runnerUp = [];
+
+	                    //go through all the keys and find the maximum
+	                    Object.keys(scoreObj).map(function (key) {
+	                        //set winner to a default
+	                        if (typeof winner.style === 'undefined') {
+	                            winner.style = key;
+	                            winner.score = scoreObj[key];
+	                        } else {
+	                            //compare the current style against winning style
+	                            //when: scoreObj for this style is > the winner, we replace winner
+	                            //else if: the scoreObj for this style is equal to the winner, we add a runner up
+	                            if (scoreObj[key] > winner.score) {
+	                                winner.style = key;
+	                                winner.score = scoreObj[key];
+	                            }
+	                        }
+	                    });
+
+	                    //go through all the keys and find any ties
+	                    Object.keys(scoreObj).map(function (key) {
+	                        //only evaluate items that are not the winner's style because this would always match
+	                        if (winner.style !== key && scoreObj[key] === winner.score) {
+	                            var scoreForRunnerUp = {};
+	                            scoreForRunnerUp.style = key;
+	                            scoreForRunnerUp.score = scoreObj[key];
+
+	                            runnerUp.push(scoreForRunnerUp);
+	                        }
+	                    });
+
+	                    if (runnerUp.length === 0) {
+	                        console.log('You\'re style is:' + winner.style);
+	                        _this2.openModal();
+	                    } else {
+	                        //there is a tie breaker
+	                        console.log('You have a tie with: ');
+	                        console.log(winner);
+	                        console.log(runnerUp);
+	                    }
+	                })();
+	            } else {
+	                //update the currentQuestion
+	                currentQuestion++;
+
+	                this.setState({ answers: answers });
+	                this.setState({ score: scoreObj });
+	                this.setState({ currentQuestion: currentQuestion });
+	            }
+	        }
+	    }, {
+	        key: 'goBack',
+	        value: function goBack() {
+	            //when we go back we need to reduce the score for the last answer
+	            var scoreObj = this.state.score;
+	            var answers = this.state.answers.slice(0);
+	            var answer = answers.pop();
+	            scoreObj[answer] = scoreObj[answer] - 1;
+
+	            this.setState({ answers: answers });
+	            this.setState({ score: scoreObj });
+	            this.setState({ currentQuestion: this.state.currentQuestion - 1 });
+	        }
+	    }, {
+	        key: 'openModal',
+	        value: function openModal() {
+	            this.setState({ modalIsOpen: true });
+	        }
+	    }, {
+	        key: 'closeModal',
+	        value: function closeModal() {
+	            this.setState({ modalIsOpen: false });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'quiz' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'vvv-page-header-div' },
+	                    _react2.default.createElement('img', { className: 'arrow', src: '//cdn.shopify.com/s/files/1/1182/4752/t/3/assets/vvv-arrow.png?7191418824142841717' }),
+	                    _react2.default.createElement(
+	                        'h1',
+	                        { className: 'page-header' },
+	                        'The Quiz'
+	                    ),
+	                    _react2.default.createElement('div', { className: 'divider' })
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-12 col-centered', id: 'questionnaire-container' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { id: 'questionnaire-body' },
+	                            _react2.default.createElement(_Question2.default, { question: this.props.questions[this.state.currentQuestion], answerQuestion: this.handleAnswerQuestion })
+	                        ),
+	                        _react2.default.createElement('div', { className: 'questionnaire-footer' })
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'questionnaire__pagination' },
+	                    _react2.default.createElement(_QuizPagination2.default, { currentQuestion: this.state.currentQuestion, handlePrevious: this.goBack }),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'quiz-pagination-bg' },
+	                        _react2.default.createElement('img', { src: '//cdn.shopify.com/s/files/1/1182/4752/t/3/assets/vvv-background__triangle--right.png?15194898095247088915', alt: '', className: 'quiz__background--box' })
+	                    )
+	                ),
+	                _react2.default.createElement(_QuizRegistration2.default, { modalIsOpen: this.state.modalIsOpen, onRequestClose: this.closeModal, closeModal: this.closeModal })
+	            );
+	        }
+	    }]);
+
+	    return Quiz;
+	}(_react.Component);
+
+	Quiz.propTypes = {
+	    questions: _react2.default.PropTypes.array.isRequired
+	};
+
+	exports.default = Quiz;
+
+/***/ },
+
+/***/ 225:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(226);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Question = function (_Component) {
+	    _inherits(Question, _Component);
+
+	    function Question(props) {
+	        _classCallCheck(this, Question);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Question).call(this, props));
+
+	        _this.state = { selectedItems: [] };
+	        _this.getQuestionBasedOnType = _this.getQuestionBasedOnType.bind(_this);
+	        _this.handleOnClick = _this.handleOnClick.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(Question, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            //need to make sure this state is cleared of selected items
+	            if (this.state.selectedItems.length > 0 && nextProps.question.id !== 6) {
+	                this.setState({ selectedItems: [] });
+	            }
+	        }
+	    }, {
+	        key: 'handleOnClick',
+	        value: function handleOnClick(answer) {
+	            this.props.answerQuestion(answer);
+	        }
+	    }, {
+	        key: 'toggleSelect',
+	        value: function toggleSelect(answer) {
+	            var selectedItems = this.state.selectedItems.splice(0);
+	            var set = new Set(selectedItems);
+	            //we need to remove this item
+	            if (set.has(answer)) {
+	                set.delete(answer);
+	            } else {
+	                set.add(answer);
+	            }
+
+	            this.setState({ selectedItems: [].concat(_toConsumableArray(set)) });
+	        }
+	    }, {
+	        key: 'getQuestionBasedOnType',
+	        value: function getQuestionBasedOnType() {
+	            var _this2 = this;
+
+	            if (this.props.question.questionType === 'single-image') {
+
+	                var answers1 = [].concat(_toConsumableArray(Array(3))).map(function (x, i) {
+	                    var clickHandler = _this2.handleOnClick.bind(_this2, _this2.props.question.answers[i].style);
+
+	                    return _react2.default.createElement(
+	                        'li',
+	                        { key: i + 0 },
+	                        _react2.default.createElement('input', { key: i + 1, type: 'radio', id: 'radio-' + i, name: 'quiz-question', value: _this2.props.question.answers[i].style }),
+	                        _react2.default.createElement(
+	                            'label',
+	                            { key: i + 2, onClick: clickHandler },
+	                            _react2.default.createElement('span', { key: i + 3 }),
+	                            _this2.props.question.answers[i].text
+	                        )
+	                    );
+	                });
+
+	                var answers2 = [].concat(_toConsumableArray(Array(3))).map(function (x, i) {
+	                    var clickHandler = _this2.handleOnClick.bind(_this2, _this2.props.question.answers[i + 3].style);
+
+	                    return _react2.default.createElement(
+	                        'li',
+	                        { key: i + 0 },
+	                        _react2.default.createElement('input', { key: i + 1, type: 'radio', id: 'radio-' + (i + 3), name: 'quiz-question', value: _this2.props.question.answers[i + 3].style }),
+	                        _react2.default.createElement(
+	                            'label',
+	                            { key: i + 2, onClick: clickHandler },
+	                            _react2.default.createElement('span', { key: i + 3 }),
+	                            _this2.props.question.answers[i + 3].text
+	                        )
+	                    );
+	                });
+
+	                return _react2.default.createElement(
+	                    'section',
+	                    { className: 'row quiz__questions quiz__question1' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-5 col-lg-6' },
+	                        _react2.default.createElement('img', { src: '//cdn.shopify.com/s/files/1/1182/4752/t/3/assets/quiz__q1main1.jpg?13287881187101057458' })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-7 col-lg-6' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-11' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { id: 'qmcontentText', className: 'ta-left' },
+	                                this.props.question.text
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-6 col-lg-5' },
+	                            answers1
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-6 col-lg-5' },
+	                            answers2
+	                        )
+	                    )
+	                );
+	            } else {
+
+	                var finishQuiz = this.handleOnClick.bind(this, this.state.selectedItems);
+
+	                var nextBtn = this.props.question.id === 6 ? _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-md-12 btn-container' },
+	                    _react2.default.createElement(
+	                        'a',
+	                        { href: '#', className: 'select_box', onClick: finishQuiz },
+	                        'Next'
+	                    )
+	                ) : '';
+
+	                var answers = [].concat(_toConsumableArray(Array(6))).map(function (x, i) {
+	                    var className = (0, _classnames2.default)('label-quiz', _this2.props.question.answers[i].image, 'q' + _this2.props.question.id, { 'image-no-border-radius': _this2.props.question.id >= 4 }, { 'selectedItem': new Set(_this2.state.selectedItems).has(_this2.props.question.answers[i].style) });
+
+	                    var clickHandler = null;
+
+	                    if (_this2.props.question.id === 6) {
+	                        clickHandler = _this2.toggleSelect.bind(_this2, _this2.props.question.answers[i].style);
+	                    } else {
+	                        clickHandler = _this2.handleOnClick.bind(_this2, _this2.props.question.answers[i].style);
+	                    }
+
+	                    return _react2.default.createElement(
+	                        'div',
+	                        { key: i + 0, className: 'col-md-2 quiz-radio' },
+	                        _react2.default.createElement('input', { key: i + 1, id: 'q2o' + i, type: 'radio', name: 'quiz-question', value: i }),
+	                        _react2.default.createElement('label', { key: i + 2, className: className, htmlFor: 'q2o' + i, onClick: clickHandler }),
+	                        _react2.default.createElement(
+	                            'p',
+	                            { key: i + 3, onClick: _this2.handleOnClick },
+	                            _this2.props.question.answers[i].text
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            { key: i + 4, className: 'lighter' },
+	                            _this2.props.question.answers[i].subText ? _this2.props.question.answers[i].subText : ''
+	                        )
+	                    );
+	                });
+
+	                return _react2.default.createElement(
+	                    'section',
+	                    { className: 'row quiz__questions quiz__question2' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-12 col-centered' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { id: 'qmcontentText', className: 'ta-center' },
+	                            this.props.question.text
+	                        ),
+	                        answers
+	                    ),
+	                    nextBtn
+	                );
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return this.getQuestionBasedOnType();
+	        }
+	    }]);
+
+	    return Question;
+	}(_react.Component);
+
+	Question.propTypes = {
+	    question: _react2.default.PropTypes.object.isRequired,
+	    answerQuestion: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = Question;
+
+/***/ },
+
+/***/ 226:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	/* Local copied over classnames because for some reason can't import classnames within 2 different react components, breaks webpack... it can't find module
+	/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+
+	var classNames = function classNames() {
+
+	    var hasOwn = {}.hasOwnProperty;
+
+	    var classes = [];
+
+	    for (var i = 0; i < arguments.length; i++) {
+	        var arg = arguments[i];
+	        if (!arg) {
+	            continue;
+	        }
+
+	        var argType = typeof arg === 'undefined' ? 'undefined' : _typeof(arg);
+
+	        if (argType === 'string' || argType === 'number') {
+	            classes.push(arg);
+	        } else if (Array.isArray(arg)) {
+	            classes.push(classNames.apply(null, arg));
+	        } else if (argType === 'object') {
+	            for (var key in arg) {
+	                if (hasOwn.call(arg, key) && arg[key]) {
+	                    classes.push(key);
+	                }
+	            }
+	        }
+	    }
+
+	    return classes.join(' ');
+	};
+
+	module.exports = classNames;
+
+/***/ },
+
+/***/ 227:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(226);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var QuizPagination = function (_Component) {
+	    _inherits(QuizPagination, _Component);
+
+	    function QuizPagination(props) {
+	        _classCallCheck(this, QuizPagination);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(QuizPagination).call(this, props));
+	    }
+
+	    _createClass(QuizPagination, [{
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            var items = [].concat(_toConsumableArray(Array(6))).map(function (x, i) {
+	                var className = (0, _classnames2.default)('quiz__pagination quiz__pagination--count', { ' quiz__pagination--current': _this2.props.currentQuestion === i }, { 'quiz__pagination--complete': _this2.props.currentQuestion > i });
+
+	                return _react2.default.createElement(
+	                    'li',
+	                    { key: i + 1, id: 'gem' + i, className: className },
+	                    _react2.default.createElement(
+	                        'span',
+	                        { className: 'quiz__pagination--count' },
+	                        i + 1 + '.'
+	                    )
+	                );
+	            });
+
+	            return _react2.default.createElement(
+	                'ul',
+	                { className: 'pagination' },
+	                _react2.default.createElement(
+	                    'li',
+	                    { className: 'quiz__pagination--previous' },
+	                    _react2.default.createElement(
+	                        'a',
+	                        { href: '#', id: 'quizPrevious', onClick: this.props.handlePrevious },
+	                        'PREVIOUS'
+	                    )
+	                ),
+	                items,
+	                _react2.default.createElement(
+	                    'li',
+	                    { id: 'gem7', className: 'quiz__pagination hide' },
+	                    _react2.default.createElement(
+	                        'span',
+	                        { className: 'quiz__pagination--count' },
+	                        '7.'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return QuizPagination;
+	}(_react.Component);
+
+	QuizPagination.propTypes = {
+	    currentQuestion: _react2.default.PropTypes.number.isRequired,
+	    handlePrevious: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = QuizPagination;
+
+/***/ },
+
+/***/ 228:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _modal = __webpack_require__(219);
+
+	var _modal2 = _interopRequireDefault(_modal);
+
+	var _index = __webpack_require__(200);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var QuizRegistration = function (_Component) {
+	    _inherits(QuizRegistration, _Component);
+
+	    function QuizRegistration(props) {
+	        _classCallCheck(this, QuizRegistration);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(QuizRegistration).call(this, props));
+
+	        _this.state = { firstName: '', lastName: '', email: '', password: '' };
+
+	        _this.customStyles = {
+	            overlay: {
+	                backgroundColor: 'rgba(0, 0, 0, 0.5)'
+	            },
+	            content: {
+	                border: '0',
+	                background: 'transparent'
+	            }
+	        };
+
+	        _this.onFirstNameChange = _this.onFirstNameChange.bind(_this);
+	        _this.onLastNameChange = _this.onLastNameChange.bind(_this);
+	        _this.onEmailChange = _this.onEmailChange.bind(_this);
+	        _this.onPasswordChange = _this.onPasswordChange.bind(_this);
+
+	        _this.onSubmit = _this.onSubmit.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(QuizRegistration, [{
+	        key: 'onFirstNameChange',
+	        value: function onFirstNameChange(event) {
+	            this.setState({ firstName: event.target.value });
+	        }
+	    }, {
+	        key: 'onLastNameChange',
+	        value: function onLastNameChange() {
+	            this.setState({ lastName: event.target.value });
+	        }
+	    }, {
+	        key: 'onEmailChange',
+	        value: function onEmailChange() {
+	            this.setState({ email: event.target.value });
+	        }
+	    }, {
+	        key: 'onPasswordChange',
+	        value: function onPasswordChange() {
+	            this.setState({ password: event.target.value });
+	        }
+	    }, {
+	        key: 'onSubmit',
+	        value: function onSubmit(event) {
+	            event.preventDefault();
+
+	            /*Register({
+	                'customer[email]': this.state.email,
+	                'customer[password]': this.state.password,
+	                'customer[first_name]': this.state.firstName,
+	                'customer[last_name]': this.state.lastName,
+	                'form_type': 'create_customer',
+	                utf8: '✓'
+	            }).then((result) => {
+	                console.log(result);
+	            });*/
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _modal2.default,
+	                {
+	                    isOpen: this.props.modalIsOpen,
+	                    onRequestClose: this.props.closeModal,
+	                    style: this.customStyles,
+	                    className: 'Modal__Bootstrap modal-dialog registration-modal', ref: 'modal' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'modal-content' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'modal-header' },
+	                        _react2.default.createElement(
+	                            'button',
+	                            { type: 'button', className: 'close', 'data-dismiss': 'modal' },
+	                            '×'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'modal-body' },
+	                        _react2.default.createElement(
+	                            'section',
+	                            { className: 'reveal__create-profile' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'container' },
+	                                _react2.default.createElement(
+	                                    'h6',
+	                                    null,
+	                                    'Create your profile to view your quiz results'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-md-8' },
+	                                    _react2.default.createElement(
+	                                        'form',
+	                                        { method: 'post', action: 'https://vavavoo-2.myshopify.com/account', id: 'create_ajax_customer' },
+	                                        _react2.default.createElement('input', { type: 'hidden', value: 'create_customer', name: 'form_type' }),
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'row' },
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'col-md-5 col-sm-12' },
+	                                                _react2.default.createElement('input', { type: 'text', name: 'customer[first_name]', placeholder: 'First Name',
+	                                                    value: this.state.firstName, onChange: this.onFirstNameChange })
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'col-md-5 col-sm-12' },
+	                                                _react2.default.createElement('input', { type: 'text', name: 'customer[last_name]', placeholder: 'Last Name',
+	                                                    value: this.state.lastName, onChange: this.onLastNameChange })
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'row' },
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'col-md-5 col-sm-12' },
+	                                                _react2.default.createElement('input', { type: 'text', name: 'customer[email]', placeholder: 'Email',
+	                                                    value: this.state.email, onChange: this.onEmailChange })
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'col-md-5 col-sm-12' },
+	                                                _react2.default.createElement('input', { type: 'password', id: 'customer_pwd', name: 'customer[password]', placeholder: 'Password',
+	                                                    value: this.state.password, onChange: this.onPasswordChange })
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'row' },
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'col-md-5 col-sm-12' },
+	                                                _react2.default.createElement('input', { type: 'password', id: 'customer_password_confirm', name: 'customer_password_confirm', placeholder: 'Retype Password' })
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'col-md-5 col-sm-12 text-right' },
+	                                                _react2.default.createElement(
+	                                                    'button',
+	                                                    { type: 'submit' },
+	                                                    'SUBMIT'
+	                                                )
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement('input', { type: 'hidden', name: 'customer[note][subscribe]', id: 'selected_style_input' }),
+	                                        _react2.default.createElement('input', { type: 'hidden', name: 'return_to', id: 'frm_return_to', value: '/pages/welcome-box-classic-beauty' }),
+	                                        _react2.default.createElement('input', { type: 'hidden', name: 'checkout_url', id: 'frm_checkout_url', value: '/pages/welcome-box-classic-beauty' })
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-md-4 signin-buttons' },
+	                                    _react2.default.createElement(
+	                                        'form',
+	                                        { method: 'post', action: 'https://vavavoo-2.myshopify.com/account', id: 'create_customer' },
+	                                        _react2.default.createElement('input', { type: 'hidden', name: 'checkout_url', value: 'https://vavavoo-2.myshopify.com/pages/welcome-box-classic-beauty' })
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return QuizRegistration;
+	}(_react.Component);
+
+	QuizRegistration.propTypes = {
+	    modalIsOpen: _react2.default.PropTypes.bool.isRequired,
+	    onRequestClose: _react2.default.PropTypes.func,
+	    closeModal: _react2.default.PropTypes.func.isRequired
+	};
+
+	exports.default = QuizRegistration;
+
+/***/ }
+
+});
+</script>

@@ -1,0 +1,391 @@
+<footer id="footer-content" class="footer" style="border-top: solid 8px #99cccc;"></footer>
+
+<script>
+webpackJsonp([0],{
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(158);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _Footer = __webpack_require__(159);
+
+	var _Footer2 = _interopRequireDefault(_Footer);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	_reactDom2.default.render(_react2.default.createElement(_Footer2.default, null), document.querySelector('#footer-content'));
+
+/***/ },
+
+/***/ 159:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Footer = function (_Component) {
+	    _inherits(Footer, _Component);
+
+	    function Footer(props) {
+	        _classCallCheck(this, Footer);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).call(this, props));
+	    }
+
+	    _createClass(Footer, [{
+	        key: "signUp",
+	        value: function signUp() {
+	            /*
+	            var removeNewsletterAlert = function($form){
+	                window.setTimeout(function(){
+	                  $form.find('.alert').hide(186, function(){
+	                    this.remove();
+	                  });
+	                }, 6000);
+	            };
+	             var resetNewsletterForm = function($form){
+	                $form.find('[type="submit"]').prop('disabled', false);
+	                $form.find('#fieldEmail').val('');
+	                removeNewsletterAlert($form);
+	            };
+	             $(document).on('submit', '.newsletter-form > form', function(e){
+	                var $form = $(this);
+	                e.preventDefault();
+	                $form.find('[type="submit"]').prop('disabled', true);
+	                if($form.find('#fieldEmail').val() !== ''){
+	                    $.ajax({
+	                        type: 'POST',
+	                        dataType: 'json', 
+	                        url: $form.prop('action'),
+	                        data: $form.serialize()
+	                    })
+	                    .done(function(result){
+	                        $form.prepend('<div class="alert alert-success">Thank you for subscribing to our email newsletter.</div>');
+	                        resetNewsletterForm($form);
+	                    })
+	                    .fail(function(err){
+	                        console.log('err: ', err);
+	                        $form.prepend('<div class="alert alert-danger">There was an error subscribing to our email newsletter.</div>');
+	                        resetNewsletterForm($form);
+	                    });
+	                }
+	            });
+	            */
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "container" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "row" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "footer__grid col-sm-3" },
+	                        _react2.default.createElement(
+	                            "h4",
+	                            null,
+	                            "Shop"
+	                        ),
+	                        _react2.default.createElement(
+	                            "ul",
+	                            { className: "list-nav nav" },
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "/pages/quiz", title: "Subscribe" },
+	                                    "Subscribe"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "/pages/gift-subscription-to-friend", title: "Gift" },
+	                                    "Gift"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "/pages/shop", title: "Store" },
+	                                    "Store"
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "clearfix social-icons" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "social-blurb" },
+	                                "Let's Be Friends"
+	                            ),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "https://twitter.com/VaVaVooOfficial", target: "_blank" },
+	                                _react2.default.createElement("img", { className: "social-icon", src: "//cdn.shopify.com/s/files/1/0956/5006/t/2/assets/twitter-icon.png?557292905641376507" })
+	                            ),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "https://www.facebook.com/vavavooofficial", target: "_blank" },
+	                                _react2.default.createElement("img", { className: "social-icon", src: "//cdn.shopify.com/s/files/1/0956/5006/t/2/assets/facebook-icon.png?557292905641376507" })
+	                            ),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "https://www.instagram.com/vavavoo/", target: "_blank" },
+	                                _react2.default.createElement("img", { className: "social-icon", src: "//cdn.shopify.com/s/files/1/0956/5006/t/2/assets/instagram-icon.png?557292905641376507" })
+	                            ),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "http://vavettes.tumblr.com/", target: "_blank" },
+	                                _react2.default.createElement("img", { className: "social-icon", src: "//cdn.shopify.com/s/files/1/0956/5006/t/2/assets/tumblr-icon.png?557292905641376507" })
+	                            ),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "https://vine.co/vavavoo/", target: "_blank" },
+	                                _react2.default.createElement("img", { className: "social-icon", src: "//cdn.shopify.com/s/files/1/0956/5006/t/2/assets/vine-icon.png?557292905641376507" })
+	                            ),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "https://www.pinterest.com/VaVaVooOfficial/", target: "_blank" },
+	                                _react2.default.createElement("img", { className: "social-icon", src: "//cdn.shopify.com/s/files/1/0956/5006/t/2/assets/pinterest-icon.png?557292905641376507" })
+	                            ),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "", target: "_blank" },
+	                                _react2.default.createElement("img", { className: "social-icon", src: "//cdn.shopify.com/s/files/1/0956/5006/t/2/assets/googleplus-icon.png?557292905641376507" })
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "footer__grid col-sm-3" },
+	                        _react2.default.createElement(
+	                            "h4",
+	                            null,
+	                            "Our Company"
+	                        ),
+	                        _react2.default.createElement(
+	                            "ul",
+	                            { className: "list-nav nav" },
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "/pages/about-vavavoo", title: "About VaVaVoo" },
+	                                    "About VaVaVoo"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "/pages/press", title: "Press" },
+	                                    "Press"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "/blogs/news", title: "V3Blog" },
+	                                    "V3Blog"
+	                                )
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "footer__grid col-sm-3" },
+	                        _react2.default.createElement(
+	                            "h4",
+	                            null,
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "hidden-xs" },
+	                                "Help"
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "ul",
+	                            { className: "list-nav nav" },
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "/pages/received-a-gift", title: "Received A Gift?" },
+	                                    "Received A Gift?"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "/pages/how-it-works", title: "How it Works" },
+	                                    "How it Works"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "/pages/faq", title: "FAQ" },
+	                                    "FAQ"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "/pages/contact", title: "Contact" },
+	                                    "Contact"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "/pages/privacy-policy", title: "Privacy" },
+	                                    "Privacy"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "/pages/terms-and-conditions", title: "Terms" },
+	                                    "Terms"
+	                                )
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "footer__grid col-sm-3" },
+	                        _react2.default.createElement(
+	                            "h4",
+	                            null,
+	                            "Gift VaVaVoo"
+	                        ),
+	                        _react2.default.createElement(
+	                            "a",
+	                            { className: "gift-link", href: "/pages/gift-subscription-to-friend" },
+	                            _react2.default.createElement("img", { classNames: "hoverfx", src: "//cdn.shopify.com/s/files/1/0956/5006/t/2/assets/vvv-footer__giftcard.png?17805697884005206113" })
+	                        ),
+	                        _react2.default.createElement(
+	                            "h5",
+	                            null,
+	                            "SIGN UP FOR THE LATEST NEWS"
+	                        ),
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            "Get exclusive offers, sneak peeks, and insider tips delivered straight to your inbox."
+	                        ),
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "form-inline" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "newsletter-form" },
+	                                _react2.default.createElement(
+	                                    "form",
+	                                    { action: "https://vavavoo.us1.list-manage.com/subscribe/post-json?u=83280adac6bd89afc15222bc4&id=7ae5bf3c7c&c=?", method: "post", id: "mc-embedded-subscribe-form", name: "mc-embedded-subscribe-form", className: "validate contact-form" },
+	                                    _react2.default.createElement("input", { type: "hidden", id: "contact_tags", name: "contact[tags]", value: "prospect,newsletter" }),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "input-group" },
+	                                        _react2.default.createElement("input", { id: "fieldEmail", name: "EMAIL", className: "form-control", type: "email", placeholder: "Your email" })
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "span",
+	                                        { className: "input-group-btn" },
+	                                        _react2.default.createElement(
+	                                            "button",
+	                                            { type: "submit", className: "btn btn-signup" },
+	                                            "Submit"
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "flex-col" },
+	                    _react2.default.createElement(
+	                        "a",
+	                        { className: "go-to-top", href: "#wrap" },
+	                        _react2.default.createElement("img", { src: "//cdn.shopify.com/s/files/1/0956/5006/t/2/assets/vvv-footer__back-to-top.png?557292905641376507" })
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "text-center footer-credits" },
+	                        _react2.default.createElement(
+	                            "small",
+	                            null,
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "/", title: "VaVaVoo homepage" },
+	                                "2016 ©  VaVaVoo."
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Footer;
+	}(_react.Component);
+
+	exports.default = Footer;
+
+/***/ }
+
+});
+</script>

@@ -1,0 +1,439 @@
+.banner-image {
+    background: #eeebe6;
+
+    img {
+        width: 100%;
+        max-width: 1920px;
+        margin: auto;
+        margin-top: -1px; //there is a black border that this offsets
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.welcome-box {
+    .light-divider {
+        width: 100%;
+    }
+
+    .welcome-box-title, .step-subtitle {
+        font-family: 'BodoniSvtyTwoITCTT-BookIta'
+    }
+
+    .product-row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            margin: 30px;
+            cursor: pointer;
+
+            &:hover, &.active {
+                img {
+                    border: solid 2px #99CCCC;
+                }
+
+                h4 {
+                    color: #99CCCC;
+                }
+            }
+
+            img {
+                width: 300px;
+                align-self: center;
+            }
+
+            h4 {
+                font-size: 1.7rem;
+                text-transform: capitalize;
+                font-family: proxima_nova_rgbold;
+            }
+        }
+    }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .style-action {
+            font-family: proxima_novasemibold_italic;
+            color: #339B9A;
+            position:relative;
+            left: 30px;
+            align-self: center;
+            text-decoration: underline;
+            font-size: 16px;
+        }
+    }
+
+    .welcome-box-footer {
+        margin-bottom: 30px;
+    }
+
+    .step-subtitle {
+        margin-bottom: 35px;
+        
+        //the welcome box module on step 3 there is subtitle that has a border after
+        &.review-subtitle:after {
+            content: "";
+            display: block;
+            margin: auto;
+            background: #000;
+            width: 80px;
+            height: 4px;
+            margin-top: 10px;
+        }
+    }
+
+    .addons {
+        margin-bottom: 35px;
+
+        img {
+            max-width: 225px;
+            border: 1px solid #99cccc;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 1px;
+            max-width: 225px;
+            text-align: center;
+            line-height: 22px;
+            margin-bottom: 0;
+        }
+
+        .price {
+            margin: 10px 0px;
+            font-weight: bold;
+            font-family: proxima_novasemibold;
+            font-size: 16px;
+
+            .actual-price {
+                margin-left: 15px;
+            }
+        }
+
+        .add-to-cart {
+            width: 100%;
+
+            a {
+                width: 100%;
+            }
+        }
+    }
+
+    .luxe-box {
+        .luxe {
+            box-shadow: 0px 0px 10px 3px rgba(119, 119, 119, 0.25);
+            margin-top: 120px;
+
+            &.selected {
+
+                &.luxe-blue {
+                    box-shadow: 0px 0px 10px 3px rgba(67,154,154, 1);
+                }
+
+                &.luxe-pink {
+                    box-shadow: 0px 0px 10px 3px rgba(166,23,70, 1);
+                }
+            }
+
+            .lux-package {
+                width:150px;
+                margin-top: -100px;
+            }
+        }
+
+        button.lux-box-option {
+            margin-top: 1em;
+            background: #99cccc;
+            border: 2px solid black;
+            padding: 5px 15px;
+            font-style: italic;
+            font-family: BodoniSvtyTwoITCTT-BookIta;
+            font-size: 1.5em;
+            letter-spacing: 2px;
+            margin: 0 auto;
+            margin-top: 1.5em;
+            margin-bottom: .5em;
+
+            &.pink {
+                background: #a61746;
+                color: #fff;
+            }
+        }
+    }
+
+    .action a {
+        margin: 30px 0 0 30px;
+        font-family: georgia;
+        font-style: italic;
+        font-size: 18px;
+        color: #000;
+
+        &:hover {
+            text-decoration: none;
+            color: #99CCCC;
+        }
+    }
+}
+
+.box-accordion {
+    .step-title {
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        font-family: proxima_novasemibold;
+        letter-spacing: 2px;
+
+        &.luxe-title {
+            font-family: 'BodoniSvtyTwoITCTT-BookIta';
+            text-align: center;
+            text-transform: none;
+        }
+    }
+}
+
+.subscription-box, .subscription-choices {
+    width: 49%;
+}
+
+.subscription-box {
+    text-align: center;
+    border: 10px solid #99cccc;
+    padding: 10px;
+
+    &:not(:first-child) {
+        margin-left: 10px;
+    }
+
+    &.selected {
+        background: #99cccc !important;
+
+        .gift-bow {
+            visibility: visible;
+        }
+    }
+
+    .gift-bow {
+        margin-top: -50px;
+        visibility: hidden;
+
+        &.margin-line-offset {
+            margin-top: -75px;
+        }
+
+        img {
+            width: 100px;
+        }
+    }
+
+    .subscription-title {
+        font-family: 'proxima_novalight';
+        font-size: 26px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .subscription-description {
+        margin-bottom: 30px;
+        margin-top: 10px;
+        padding: 0 10px;
+        letter-spacing: 1px;
+        max-width: 400px;
+        align-self: center;
+        font-size: 16px;
+    }
+
+    .blurb {
+        font-family: proxima_novalight;
+        font-weight: bold;
+        font-size: 22px;
+
+        &:last-child {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.subscription-choices {
+
+    .subscription-choice-title {
+        font-size: 22px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        margin: 20px 5px;
+    }
+
+    input[type=radio], input[type=checkbox] {
+        display: none !important;
+
+        &:checked + label:before {
+            content: "\2022";
+            color: #99cccc;
+            border: 1px solid #000;
+            background-color: #99cccc;
+            font-size: 1.8em;
+            text-align: center;
+            line-height: 14px;
+            text-shadow: 0px 0px 0px #eee;
+        }
+    }
+
+    input[type=radio] + label:before {
+        content: "";
+        display: inline-block !important;
+        width: 15px;
+        height: 15px;
+        vertical-align: middle;
+        margin-right: 8px;
+        background-color: #FFF;
+        border: 1px solid #000;
+        border-radius: 8px;
+    }
+
+    label.lbl-plan {
+        line-height: 40px;
+        padding-left: 5px;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+        z-index: 90;
+        font-weight: normal;
+
+        strong {
+            font-family: proxima_nova_rgbold;
+        }
+    }
+}
+
+.style-modal {
+
+    .modal-title {
+        margin-bottom: 25px;
+        font-family: proxima_nova_rgbold;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .modal-content {
+        border: solid #99cccc 5px;
+
+        a:hover {
+            opacity: .5;
+            text-decoration: none;
+        }
+
+        .change-style {
+            display: block;
+            margin: 0;
+
+            img {
+                width: 115px;
+                margin-bottom: 10px;
+
+                &.selected {
+                    border: 3px solid #339B9A;
+                    border-radius: 200px;
+                }
+            }
+
+            h4 {
+                text-align: center;
+                font-size: 16px;
+                margin-top: 5px;
+                text-transform: capitalize;
+                font-family: 'proxima_novasemibold';
+                color: #000;
+            }
+        }
+
+        p {
+            color: #303035;
+            font-family: 'proxima_nova_rgregular';
+            font-size: 1.4rem;
+            font-style: italic;
+            text-align: center;
+            max-width: 100%;
+            margin-bottom: 0;
+            line-height: 15px;
+            font-weight: bold;
+        }
+    }
+}
+
+/* item review cart */
+.item-review {
+    margin-top: 30px;
+    
+    .cell {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        
+        &.quantity {
+            font-size: 20px;
+            font-family: 'proxima_nova_rgbold';
+            letter-spacing: 6px;
+            padding: 20px;
+        }
+        
+        &.prod-img {
+            width: 150px;
+            display: flex;
+            align-items: center;
+            
+            .subcription-img {
+                width: 150px;
+            }
+            
+            .product-img {
+                width: 120px;
+                border: 1px solid #c9e4e4;
+            }
+        }
+        
+        &.item-cell {
+            flex: 1;
+            padding-left: 40px;
+                
+            .item-title {
+                font-size: 18px;
+                font-family: 'proxima_novasemibold';
+                text-transform: capitalize;
+                letter-spacing: 1px;
+            }
+        
+            .item-description {
+                font-style: italic;
+                text-transform: capitalize;
+                font-size: 16px;
+                font-family: 'proxima_nova_rgregular';
+                letter-spacing: 1px;
+            }
+        }
+        
+        &.price {
+            font-size: 22px;
+            font-family: 'proxima_nova_rgbold';
+            letter-spacing: 1px;
+            padding-right: 40px;
+        }
+        
+        &.remove a {
+            color: #669999;
+            font-size: 16px;
+            font-family: 'proxima_nova_rgbold';
+            letter-spacing: 1px;
+        }
+    }
+    
+    
+}
+

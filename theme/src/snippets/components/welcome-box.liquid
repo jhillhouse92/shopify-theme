@@ -1,0 +1,30 @@
+<div class="welcome-box-container"></div>
+
+<script type="text/javascript">
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import WelcomeBox from '../../components/WelcomeBox';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from '../../reducers';
+
+
+//to use liquid variables in JSX, must declare them as JS variables prior so they are parsed correctly by Babel
+//the liquid variable imgUrl is defined in the page template that included this snippet
+let imgUrl = "! '{{ imgUrl | asset_url }}' !";
+let luxebox = false;
+
+//!  {% if luxebox %} !//
+luxebox = true;
+//!  {% endif %} !//
+
+ReactDOM.render(
+    <Provider store={createStore(reducers)}>
+        <WelcomeBox bannerImg={imgUrl} luxebox={luxebox} />
+    </Provider>,
+
+    document.querySelector('.welcome-box-container')
+);
+
+</script>
