@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        function toHtmlEntities(text) {
+  var rgx1 = new RegExp('<','g');
+  var rgx2 = new RegExp('>','g');
+  var rgx3 = new RegExp('\r?\n','g');
+  var rgx4 = new RegExp('  ','g');
+
+  text = text.replace(rgx1, "&lt;");
+  text = text.replace(rgx2, "&gt;");
+  text = text.replace(rgx3, '<br />');
+  text = text.replace(rgx4, '&nbsp;&nbsp;');
+
+  return text;
+}
+
+function toCodeSnippet(text) {
+  return "<code>" + toHtmlEntities(text) + "</code>";
+}
+
+function createAllSnippets() {
+  $(".to-code").each(
+    function()
+    {
+      // Step 1: Create Snippet
+      $(this).wrap('</p>');
+      var codeSnippet = toCodeSnippet($(this).html());
+      $(this).unwrap();
+
+      $(this).html(codeSnippet);
+
+      // Step 2: Remove Extra spaces
+      var nSpaces = $(this).find("code").html().search(new RegExp("&lt;")) / 6;
+      var strRpl = "";
+      for (var i=1; i<nSpaces; i++)
+      {
+        strRpl = strRpl + "&nbsp;";
+      }
+      strRpl = strRpl;
+
+      $(this).find("code").html($(this).find("code").html().replace(new RegExp(strRpl + "&lt;", 'g'), "&lt;"));
+      $(this).find("code").html($(this).find("code").html().replace(new RegExp(strRpl, 'g'), ""));
+      $(this).find("code>br:first").remove();
+      $(this).find("code>br:last").remove();
+    }
+  );
+}
+
+    </script>
+</head>
+
+<body>
+<div class="page page--flush-with-header  page--with-sidebar page--home-classic">
+
+  <div class="home-greeting
+        home-greeting-no-today-view
+  ">
+    <div class="home-greeting__content">
+      <p class="home-greeting__heading">Good afternoon, Joseph.</p>
+
+        <p class="home-greeting__body">Here's what's happening with your store right now.</p>
+    </div>
+  </div>
+
+  <div class="page__content">
+      <div define="{today: new Shopify.TodayFeature(this, {&quot;hasOnlineStore&quot;:true,&quot;token&quot;:&quot;WyIxMTgyNDc1MiIsIjIwMTYtMDMtMTJUMTc6MzM6MzYtMDU6MDAiXQ==--8b56702f2c916651d9412c8fe979f9ab84ceb06a&quot;})}" class="home-today-feature" bind-class="{hide: !today.humanized.totalSales || !today.humanized.totalVisits}">
+        <div class="next-card next-card--today-feature">
+  <div class="next-grid">
+    <div class="next-grid__cell">
+      <h3 class="home-today-feature__label next-heading next-heading--half-margin next-heading--subdued">Today's sales</h3>
+      <h2 class="home-today-feature__metric" bind="today.humanized.totalSales">$0.00</h2>
+</div>    <div class="next-grid__cell next-grid__cell--no-flex">
+      <img class="default-image" src="//cdn.shopify.com/s/assets/admin/home/today-view/sales-1adf6684d25452795437f51e85ddfe22a1768ca21c721f4914f32359abf578f4.png" alt="Sales">
+</div></div></div>
+
+<hr>
+
+<div class="next-card next-card--today-feature">
+  <div class="next-grid">
+    <div class="next-grid__cell">
+      <h3 class="home-today-feature__label next-heading next-heading--half-margin next-heading--subdued">Today's visitors</h3>
+      <h2 class="home-today-feature__metric" bind="today.humanized.totalVisits">0</h2>
+</div>    <div class="next-grid__cell next-grid__cell--no-flex">
+      <img class="default-image" src="//cdn.shopify.com/s/assets/admin/home/today-view/visitors-fe032be62801ff200046c090883ff50762e0690ea887da14855fc90d4d168edc.png" alt="Visitors">
+</div></div></div>
+
+      </div>
+
+      <div class="next-card next-card--home-notifications">
+            <div context="notification" define="{notification: new (Shopify['ExceededMaximumOrdersNotification'] || Shopify.Notification)(this, {&quot;handle&quot;:&quot;exceeded_maximum_orders_notification&quot;,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;})}" class="next-card__section next-card__section--no-vertical-spacing next-card__section--callout next-card__section--callout-info">
+  <div class="next-grid next-grid--no-outside-padding">
+    <div class="next-grid__cell next-grid__cell--no-flex">
+      <p>
+        <svg class="next-icon next-icon--size-8 next-icon--notification-dot"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#dot"></use></svg>
+      </p>
+</div>
+    <div class="next-grid__cell">
+      <p class="">You have <span class="x-large">50</span> orders left in your trial account</p>
+
+</div>
+</div>
+</div>
+
+      </div>
+
+
+
+      <div class="ui-feed" style="z-index: 4;" data-topic="updates">
+        <div class="ui-feed__section">
+          <div class="ui-feed__item ui-feed__item--heading">
+            <div class="ui-feed__marker">
+              <div class="frame frame--32 frame--fill frame--circle frame--alternate-border frame--updates">
+                <svg class="next-icon next-icon--size-16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-notice"></use></svg>
+              </div>
+            </div>
+
+            <h2 class="next-heading next-heading--no-margin next-heading--small next-heading--subdued next-heading--semi-bold">Updates</h2>
+          </div>
+
+
+                <div class="ui-feed__item ui-feed__item--card" data-handle="bab_announcement_card" data-card-type="FeedCard" define="{card: new (Shopify['BABAnnouncementCard'] || Shopify.HomeCard)(this, {&quot;klass&quot;:&quot;bab_announcement_card&quot;,&quot;title&quot;:&quot;You have just a little more time to enter our \u003cspan class='type--semi-bold'\u003eBuild a Business VI Competition\u003c\/span\u003e and win a one-week stay in the Oheka Castle. You'll get mentorship from Tony Robbins, Tim Ferriss, Russell Simmons, and more.&quot;,&quot;message&quot;:null,&quot;handle&quot;:&quot;bab_announcement_card&quot;,&quot;card_type&quot;:&quot;FeedCard&quot;,&quot;topic&quot;:&quot;updates&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})}" context="card">
+  <div class="overlaid next-card next-card--with-full-height-image">
+    <a class="js-internal" target="_blank" href="/admin/api/auth?api_key=861710b24eac23911abcbd14133e3fc2" bind-event-click="onAction()" allow-default="1">
+  <div class="next-card__image" style="max-width: 100%; margin-left: 0; background-image: url(//cdn.shopify.com/s/assets/admin/home/misc-cards/bab-vi-location-a707eef6c5fa253f8492e2f5e7eb254739bb9a198b6c1431e7f48bf64062376f.jpg)"></div>
+</a>
+
+<div class="next-card__section next-card__section--three-quarter-spacing">
+  <p class="type--base type--quarter-margin">
+    <a class="js-internal type--blog-category external-link" target="_blank" href="https://www.shopify.com/blog/topics/?utm_source=Shopify&amp;utm_medium=AdminHomefeed"></a>
+  </p>
+
+  <a class="js-internal next-heading next-heading--blog-card next-heading--no-margin" style="margin: 0;" target="_blank" href="/admin/api/auth?api_key=861710b24eac23911abcbd14133e3fc2" bind-event-click="onAction({&quot;klass&quot;:&quot;bab_announcement_card&quot;,&quot;title&quot;:&quot;You have just a little more time to enter our \u003cspan class='type--semi-bold'\u003eBuild a Business VI Competition\u003c\/span\u003e and win a one-week stay in the Oheka Castle. You'll get mentorship from Tony Robbins, Tim Ferriss, Russell Simmons, and more.&quot;,&quot;message&quot;:null,&quot;handle&quot;:&quot;bab_announcement_card&quot;,&quot;card_type&quot;:&quot;FeedCard&quot;,&quot;topic&quot;:&quot;updates&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})" allow-default="1">You have just a little more time to enter our <span class="type--semi-bold">Build a Business VI Competition</span> and win a one-week stay in the Oheka Castle. You'll get mentorship from Tony Robbins, Tim Ferriss, Russell Simmons, and more.</a>
+</div>
+
+
+
+    <div class="overlaid__element overlaid__element--right-top--zindex-safe">
+  <div class="next-popover__container">
+      <button name="button" type="button" class="btn btn--plain btn--icon btn--icon--default-spacing btn--popover-activator" id="next-popover-activator--5" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--5" aria-controls="next-popover--5"><svg class="next-icon next-icon--size-12 next-icon--sky-darker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ellipses"></use></svg></button>
+<div class="next-popover next-popover--half-spacing next-popover--align-to-edge" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--5" aria-labelledby="next-popover-activator--5" aria-expanded="false" style="max-width: none; margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+
+    <ul class="next-list next-list--compact next-list--home-feedback">
+      <li>
+        <button class="next-list__item" bind-event-click="dismiss()">Dismiss</button>
+      </li>
+      <li>
+        <button class="next-list__item" bind-event-click="showFeedbackDialog()">Send feedback</button>
+      </li>
+    </ul>
+</div></div></div></div></div></div>
+
+<div class="js-home-card-feedback-overlay home-card-overlay hide">
+  <section class="js-home-card-feedback-options next-card__section">
+    <h2 class="next-heading next-heading--half-margin">Send feedback:</h2>
+
+    <div class="wrappable">
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="bab_announcement_card_this_is_useful">This is useful</label><input type="radio" name="dismiss_feedback_reason" id="bab_announcement_card_this_is_useful" value="This is useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="bab_announcement_card_this_isn_t_useful">This isn't useful</label><input type="radio" name="dismiss_feedback_reason" id="bab_announcement_card_this_isn_t_useful" value="This isn't useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="bab_announcement_card_this_appears_too_often">This appears too often</label><input type="radio" name="dismiss_feedback_reason" id="bab_announcement_card_this_appears_too_often" value="This appears too often" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+    </div>
+
+    <div class="next-input-wrapper"><label class="next-label"></label><textarea id="" placeholder="Additional comments" rows="3" class="next-textarea feedback-comment" bind="selectedFeedbackComment"></textarea></div>
+
+    <button name="button" type="submit" bind-event-click="submitFeedback()" bind-class="{disabled: !isFeedbackSelected()}" class="btn disabled">Send feedback</button>
+    <button name="button" type="cancel" class="btn btn--plain" bind-event-click="cancelFeedbackDialog()">Cancel</button>
+  </section>
+</div>
+
+    <div class="js-home-card-undo-overlay home-card-overlay hide" bind-show="undoHeading">
+  <div class="overlaid__element overlaid__element--origin-right-top overlaid__element--right-top hide" bind-show="undoAction">
+    <button name="button" type="submit" class="btn btn-slim btn--icon btn--plain home-card-overlay-close" bind-event-click="hide()"><svg class="next-icon next-icon--size-12 next-icon--slate-lightest"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use></svg></button>
+  </div>
+
+  <section class="js-home-card-feedback-undo next-card__section next-card__section--home-feedback-undo">
+    <h2 class="next-heading next-heading--half-margin" bind="undoHeading"></h2>
+    <p class="type--subdued" bind="undoMessage"></p>
+
+    <button name="button" type="button" class="btn btn--plain hide" bind-event-click="undo()" bind-show="undoAction">Undo</button>
+  </section>
+</div>
+
+  </div>
+
+</div>
+
+        </div>
+      </div>
+      <div class="ui-feed" style="z-index: 3;" data-topic="advice">
+        <div class="ui-feed__section">
+          <div class="ui-feed__item ui-feed__item--heading">
+            <div class="ui-feed__marker">
+              <div class="frame frame--32 frame--fill frame--circle frame--alternate-border frame--advice">
+                <svg class="next-icon next-icon--size-16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-comments"></use></svg>
+              </div>
+            </div>
+
+            <h2 class="next-heading next-heading--no-margin next-heading--small next-heading--subdued next-heading--semi-bold">Advice</h2>
+          </div>
+
+
+                <div class="ui-feed__item ui-feed__item--card" data-handle="onboarding_pos_install_card" data-card-type="OnboardingTaskCard" define="{card: new (Shopify['OnboardingPosInstallCard'] || Shopify.HomeCard)(this, {&quot;klass&quot;:&quot;onboarding_pos_install_card&quot;,&quot;title&quot;:&quot;Install the Shopify POS App&quot;,&quot;message&quot;:null,&quot;handle&quot;:&quot;onboarding_pos_install_card&quot;,&quot;card_type&quot;:&quot;OnboardingTaskCard&quot;,&quot;topic&quot;:&quot;advice&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})}" context="card">
+  <div class="overlaid next-card ">
+    <div class="next-card__section next-card__section--half-spacing next-card__section--space-for-feedback-menu
+  next-card__section--rounded">
+  <div class="next-grid next-grid--no-outside-padding next-grid--margin-top next-grid--margin-bottom">
+    <div class="next-grid__cell">
+
+        <h3 class="next-heading next-heading--no-margin">Install the Shopify POS App</h3>
+
+          <a class="btn btn-separate-top btn-separate-left" bind-event-click="onAction()" allow-default="1" tg-remote="post" href="/admin/users/send_download_email?app=pos">Email install link</a>
+
+
+
+</div>
+      <div class="next-grid__cell next-grid__cell--no-flex next-grid__cell--aligned-to-end">
+          <div class="default-image" style="background-image: url('//cdn.shopify.com/s/assets/admin/home/onboarding-tasks/onboarding-pos-bea9885b9fe2607c175ab44fd36562b3567bffefb9d5b50960822233ae3bf293.png');">
+          </div>
+</div></div></div>
+
+
+
+
+
+
+
+
+
+    <div class="overlaid__element overlaid__element--right-top--zindex-safe">
+  <div class="next-popover__container">
+      <button name="button" type="button" class="btn btn--plain btn--icon btn--icon--default-spacing btn--popover-activator" id="next-popover-activator--6" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--6" aria-controls="next-popover--6"><svg class="next-icon next-icon--size-12 next-icon--sky-darker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ellipses"></use></svg></button>
+<div class="next-popover next-popover--half-spacing next-popover--align-to-edge" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--6" aria-labelledby="next-popover-activator--6" aria-expanded="false" style="max-width: none; margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+
+    <ul class="next-list next-list--compact next-list--home-feedback">
+      <li>
+        <button class="next-list__item" bind-event-click="dismiss()">Dismiss</button>
+      </li>
+      <li>
+        <button class="next-list__item" bind-event-click="showFeedbackDialog()">Send feedback</button>
+      </li>
+    </ul>
+</div></div></div></div></div></div>
+
+<div class="js-home-card-feedback-overlay home-card-overlay hide">
+  <section class="js-home-card-feedback-options next-card__section">
+    <h2 class="next-heading next-heading--half-margin">Send feedback:</h2>
+
+    <div class="wrappable">
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="onboarding_pos_install_card_this_is_useful">This is useful</label><input type="radio" name="dismiss_feedback_reason" id="onboarding_pos_install_card_this_is_useful" value="This is useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="onboarding_pos_install_card_this_isn_t_useful">This isn't useful</label><input type="radio" name="dismiss_feedback_reason" id="onboarding_pos_install_card_this_isn_t_useful" value="This isn't useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="onboarding_pos_install_card_this_appears_too_often">This appears too often</label><input type="radio" name="dismiss_feedback_reason" id="onboarding_pos_install_card_this_appears_too_often" value="This appears too often" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+    </div>
+
+    <div class="next-input-wrapper"><label class="next-label"></label><textarea id="" placeholder="Additional comments" rows="3" class="next-textarea feedback-comment" bind="selectedFeedbackComment"></textarea></div>
+
+    <button name="button" type="submit" bind-event-click="submitFeedback()" bind-class="{disabled: !isFeedbackSelected()}" class="btn disabled">Send feedback</button>
+    <button name="button" type="cancel" class="btn btn--plain" bind-event-click="cancelFeedbackDialog()">Cancel</button>
+  </section>
+</div>
+
+    <div class="js-home-card-undo-overlay home-card-overlay hide" bind-show="undoHeading">
+  <div class="overlaid__element overlaid__element--origin-right-top overlaid__element--right-top hide" bind-show="undoAction">
+    <button name="button" type="submit" class="btn btn-slim btn--icon btn--plain home-card-overlay-close" bind-event-click="hide()"><svg class="next-icon next-icon--size-12 next-icon--slate-lightest"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use></svg></button>
+  </div>
+
+  <section class="js-home-card-feedback-undo next-card__section next-card__section--home-feedback-undo">
+    <h2 class="next-heading next-heading--half-margin" bind="undoHeading"></h2>
+    <p class="type--subdued" bind="undoMessage"></p>
+
+    <button name="button" type="button" class="btn btn--plain hide" bind-event-click="undo()" bind-show="undoAction">Undo</button>
+  </section>
+</div>
+
+  </div>
+
+</div>
+
+                <div class="ui-feed__item ui-feed__item--card" data-handle="shopify_payments_card" data-card-type="FeedCard" define="{card: new (Shopify['ShopifyPaymentsCard'] || Shopify.HomeCard)(this, {&quot;klass&quot;:&quot;shopify_payments_card&quot;,&quot;title&quot;:&quot;Pay less for processing with Shopify\u0026nbsp;Payments&quot;,&quot;message&quot;:&quot;Switch to Shopify\u0026nbsp;Payments and you'll only pay 2.9% + 30\u0026cent; for credit card transactions – with no hidden fees attached.&quot;,&quot;handle&quot;:&quot;shopify_payments_card&quot;,&quot;card_type&quot;:&quot;FeedCard&quot;,&quot;topic&quot;:&quot;advice&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})}" context="card">
+  <div class="overlaid next-card ">
+    <div class="next-card__section next-card__section--half-spacing next-card__section--space-for-feedback-menu
+  next-card__section--rounded">
+  <div class="next-grid next-grid--no-outside-padding next-grid--margin-top next-grid--margin-bottom">
+    <div class="next-grid__cell">
+
+        <h3 class="next-heading next-heading--no-margin">Pay less for processing with Shopify&nbsp;Payments</h3>
+        <p class="type--base type--half-margin-top">Switch to Shopify&nbsp;Payments and you'll only pay 2.9% + 30¢ for credit card transactions – with no hidden fees attached.</p>
+
+        <a class="btn btn-separate-top btn-separate-left" bind-event-click="onAction()" allow-default="1" href="/admin/shopify-payments">Learn more</a>
+
+
+</div>
+      <div class="next-grid__cell next-grid__cell--no-flex next-grid__cell--aligned-to-end">
+          <div class="default-image" style="background-image: url('//cdn.shopify.com/s/assets/admin/home/onboarding-tasks/onboarding-payments-9c20786df9292517ad72947ffaec66af4e96ebf755b6299220ce61ec10281608.png');">
+          </div>
+</div></div></div>
+
+
+
+
+
+
+
+
+
+    <div class="overlaid__element overlaid__element--right-top--zindex-safe">
+  <div class="next-popover__container">
+      <button name="button" type="button" class="btn btn--plain btn--icon btn--icon--default-spacing btn--popover-activator" id="next-popover-activator--7" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--7" aria-controls="next-popover--7"><svg class="next-icon next-icon--size-12 next-icon--sky-darker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ellipses"></use></svg></button>
+<div class="next-popover next-popover--half-spacing next-popover--align-to-edge" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--7" aria-labelledby="next-popover-activator--7" aria-expanded="false" style="max-width: none; margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+
+    <ul class="next-list next-list--compact next-list--home-feedback">
+      <li>
+        <button class="next-list__item" bind-event-click="dismiss()">Dismiss</button>
+      </li>
+      <li>
+        <button class="next-list__item" bind-event-click="showFeedbackDialog()">Send feedback</button>
+      </li>
+    </ul>
+</div></div></div></div></div></div>
+
+<div class="js-home-card-feedback-overlay home-card-overlay hide">
+  <section class="js-home-card-feedback-options next-card__section">
+    <h2 class="next-heading next-heading--half-margin">Send feedback:</h2>
+
+    <div class="wrappable">
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="shopify_payments_card_this_is_useful">This is useful</label><input type="radio" name="dismiss_feedback_reason" id="shopify_payments_card_this_is_useful" value="This is useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="shopify_payments_card_this_isn_t_useful">This isn't useful</label><input type="radio" name="dismiss_feedback_reason" id="shopify_payments_card_this_isn_t_useful" value="This isn't useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="shopify_payments_card_this_appears_too_often">This appears too often</label><input type="radio" name="dismiss_feedback_reason" id="shopify_payments_card_this_appears_too_often" value="This appears too often" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+    </div>
+
+    <div class="next-input-wrapper"><label class="next-label"></label><textarea id="" placeholder="Additional comments" rows="3" class="next-textarea feedback-comment" bind="selectedFeedbackComment"></textarea></div>
+
+    <button name="button" type="submit" bind-event-click="submitFeedback()" bind-class="{disabled: !isFeedbackSelected()}" class="btn disabled">Send feedback</button>
+    <button name="button" type="cancel" class="btn btn--plain" bind-event-click="cancelFeedbackDialog()">Cancel</button>
+  </section>
+</div>
+
+    <div class="js-home-card-undo-overlay home-card-overlay hide" bind-show="undoHeading">
+  <div class="overlaid__element overlaid__element--origin-right-top overlaid__element--right-top hide" bind-show="undoAction">
+    <button name="button" type="submit" class="btn btn-slim btn--icon btn--plain home-card-overlay-close" bind-event-click="hide()"><svg class="next-icon next-icon--size-12 next-icon--slate-lightest"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use></svg></button>
+  </div>
+
+  <section class="js-home-card-feedback-undo next-card__section next-card__section--home-feedback-undo">
+    <h2 class="next-heading next-heading--half-margin" bind="undoHeading"></h2>
+    <p class="type--subdued" bind="undoMessage"></p>
+
+    <button name="button" type="button" class="btn btn--plain hide" bind-event-click="undo()" bind-show="undoAction">Undo</button>
+  </section>
+</div>
+
+  </div>
+
+</div>
+
+                <div class="ui-feed__item ui-feed__item--card" data-handle="advice_card_setup_discount" data-card-type="MilestoneCard" define="{card: new (Shopify['MilestoneCard'] || Shopify.HomeCard)(this, {&quot;klass&quot;:&quot;milestone_card&quot;,&quot;title&quot;:&quot;Reward repeat customers with a discount&quot;,&quot;message&quot;:&quot;Increase your sales by bringing customers back to your store with an exclusive deal.&quot;,&quot;handle&quot;:&quot;advice_card_setup_discount&quot;,&quot;card_type&quot;:&quot;MilestoneCard&quot;,&quot;topic&quot;:&quot;advice&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})}" context="card">
+  <div class="overlaid next-card ">
+    <div class="next-card__section next-card__section--half-spacing next-card__section--space-for-feedback-menu
+  next-card__section--rounded">
+  <div class="next-grid next-grid--no-outside-padding next-grid--margin-top next-grid--margin-bottom">
+    <div class="next-grid__cell">
+
+        <h3 class="next-heading next-heading--no-margin">Reward repeat customers with a discount</h3>
+        <p class="type--base type--half-margin-top">Increase your sales by bringing customers back to your store with an exclusive deal.</p>
+
+        <a class="btn btn-separate-top btn-separate-left" bind-event-click="onAction()" allow-default="1" href="/admin/discounts">Create a discount code</a>
+
+
+</div>
+      <div class="next-grid__cell next-grid__cell--no-flex next-grid__cell--aligned-to-end">
+          <div class="default-image" style="background-image: url('//cdn.shopify.com/s/assets/admin/home/advice/advice-discounts-db36b8d0421a42e6739862cdb758b4aea71ef79b4da1845d5ce61b71ca815072.png');">
+          </div>
+</div></div></div>
+
+
+
+
+
+
+
+
+
+    <div class="overlaid__element overlaid__element--right-top--zindex-safe">
+  <div class="next-popover__container">
+      <button name="button" type="button" class="btn btn--plain btn--icon btn--icon--default-spacing btn--popover-activator" id="next-popover-activator--8" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--8" aria-controls="next-popover--8"><svg class="next-icon next-icon--size-12 next-icon--sky-darker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ellipses"></use></svg></button>
+<div class="next-popover next-popover--half-spacing next-popover--align-to-edge" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--8" aria-labelledby="next-popover-activator--8" aria-expanded="false" style="max-width: none; margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+
+    <ul class="next-list next-list--compact next-list--home-feedback">
+      <li>
+        <button class="next-list__item" bind-event-click="dismiss()">Dismiss</button>
+      </li>
+      <li>
+        <button class="next-list__item" bind-event-click="showFeedbackDialog()">Send feedback</button>
+      </li>
+    </ul>
+</div></div></div></div></div></div>
+
+<div class="js-home-card-feedback-overlay home-card-overlay hide">
+  <section class="js-home-card-feedback-options next-card__section">
+    <h2 class="next-heading next-heading--half-margin">Send feedback:</h2>
+
+    <div class="wrappable">
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="advice_card_setup_discount_this_is_useful">This is useful</label><input type="radio" name="dismiss_feedback_reason" id="advice_card_setup_discount_this_is_useful" value="This is useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="advice_card_setup_discount_this_isn_t_useful">This isn't useful</label><input type="radio" name="dismiss_feedback_reason" id="advice_card_setup_discount_this_isn_t_useful" value="This isn't useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="advice_card_setup_discount_this_appears_too_often">This appears too often</label><input type="radio" name="dismiss_feedback_reason" id="advice_card_setup_discount_this_appears_too_often" value="This appears too often" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+    </div>
+
+    <div class="next-input-wrapper"><label class="next-label"></label><textarea id="" placeholder="Additional comments" rows="3" class="next-textarea feedback-comment" bind="selectedFeedbackComment"></textarea></div>
+
+    <button name="button" type="submit" bind-event-click="submitFeedback()" bind-class="{disabled: !isFeedbackSelected()}" class="btn disabled">Send feedback</button>
+    <button name="button" type="cancel" class="btn btn--plain" bind-event-click="cancelFeedbackDialog()">Cancel</button>
+  </section>
+</div>
+
+    <div class="js-home-card-undo-overlay home-card-overlay hide" bind-show="undoHeading">
+  <div class="overlaid__element overlaid__element--origin-right-top overlaid__element--right-top hide" bind-show="undoAction">
+    <button name="button" type="submit" class="btn btn-slim btn--icon btn--plain home-card-overlay-close" bind-event-click="hide()"><svg class="next-icon next-icon--size-12 next-icon--slate-lightest"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use></svg></button>
+  </div>
+
+  <section class="js-home-card-feedback-undo next-card__section next-card__section--home-feedback-undo">
+    <h2 class="next-heading next-heading--half-margin" bind="undoHeading"></h2>
+    <p class="type--subdued" bind="undoMessage"></p>
+
+    <button name="button" type="button" class="btn btn--plain hide" bind-event-click="undo()" bind-show="undoAction">Undo</button>
+  </section>
+</div>
+
+  </div>
+
+</div>
+
+                <div class="ui-feed__item ui-feed__item--card" data-handle="setup_payments_gateway_card" data-card-type="FeedCard" define="{card: new (Shopify['SetupPaymentsGatewayCard'] || Shopify.HomeCard)(this, {&quot;klass&quot;:&quot;setup_payments_gateway_card&quot;,&quot;title&quot;:&quot;Configure how your store accepts payments&quot;,&quot;message&quot;:&quot;Choose a payment service that will handle your store checkout and process payments from your customers.&quot;,&quot;handle&quot;:&quot;setup_payments_gateway_card&quot;,&quot;card_type&quot;:&quot;FeedCard&quot;,&quot;topic&quot;:&quot;advice&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})}" context="card">
+  <div class="overlaid next-card ">
+    <div class="next-card__section next-card__section--half-spacing next-card__section--space-for-feedback-menu
+  next-card__section--rounded">
+  <div class="next-grid next-grid--no-outside-padding next-grid--margin-top next-grid--margin-bottom">
+    <div class="next-grid__cell">
+
+        <h3 class="next-heading next-heading--no-margin">Configure how your store accepts payments</h3>
+        <p class="type--base type--half-margin-top">Choose a payment service that will handle your store checkout and process payments from your customers.</p>
+
+        <a class="btn btn-separate-top btn-separate-left" bind-event-click="onAction()" allow-default="1" href="/admin/settings/payments">Configure</a>
+
+
+</div>
+      <div class="next-grid__cell next-grid__cell--no-flex next-grid__cell--aligned-to-end">
+          <div class="default-image" style="background-image: url('//cdn.shopify.com/s/assets/admin/home/misc-cards/pay-gateway-09ab87aa0260836f4691b8a62c5fc7cdd52f4f519b9edcfcfe7947277754931c.png');">
+          </div>
+</div></div></div>
+
+
+
+
+
+
+
+
+
+    <div class="overlaid__element overlaid__element--right-top--zindex-safe">
+  <div class="next-popover__container">
+      <button name="button" type="button" class="btn btn--plain btn--icon btn--icon--default-spacing btn--popover-activator" id="next-popover-activator--9" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--9" aria-controls="next-popover--9"><svg class="next-icon next-icon--size-12 next-icon--sky-darker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ellipses"></use></svg></button>
+<div class="next-popover next-popover--half-spacing next-popover--align-to-edge" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--9" aria-labelledby="next-popover-activator--9" aria-expanded="false" style="max-width: none; margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+
+    <ul class="next-list next-list--compact next-list--home-feedback">
+      <li>
+        <button class="next-list__item" bind-event-click="dismiss()">Dismiss</button>
+      </li>
+      <li>
+        <button class="next-list__item" bind-event-click="showFeedbackDialog()">Send feedback</button>
+      </li>
+    </ul>
+</div></div></div></div></div></div>
+
+<div class="js-home-card-feedback-overlay home-card-overlay hide">
+  <section class="js-home-card-feedback-options next-card__section">
+    <h2 class="next-heading next-heading--half-margin">Send feedback:</h2>
+
+    <div class="wrappable">
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="setup_payments_gateway_card_this_is_useful">This is useful</label><input type="radio" name="dismiss_feedback_reason" id="setup_payments_gateway_card_this_is_useful" value="This is useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="setup_payments_gateway_card_this_isn_t_useful">This isn't useful</label><input type="radio" name="dismiss_feedback_reason" id="setup_payments_gateway_card_this_isn_t_useful" value="This isn't useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="setup_payments_gateway_card_this_appears_too_often">This appears too often</label><input type="radio" name="dismiss_feedback_reason" id="setup_payments_gateway_card_this_appears_too_often" value="This appears too often" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+    </div>
+
+    <div class="next-input-wrapper"><label class="next-label"></label><textarea id="" placeholder="Additional comments" rows="3" class="next-textarea feedback-comment" bind="selectedFeedbackComment"></textarea></div>
+
+    <button name="button" type="submit" bind-event-click="submitFeedback()" bind-class="{disabled: !isFeedbackSelected()}" class="btn disabled">Send feedback</button>
+    <button name="button" type="cancel" class="btn btn--plain" bind-event-click="cancelFeedbackDialog()">Cancel</button>
+  </section>
+</div>
+
+    <div class="js-home-card-undo-overlay home-card-overlay hide" bind-show="undoHeading">
+  <div class="overlaid__element overlaid__element--origin-right-top overlaid__element--right-top hide" bind-show="undoAction">
+    <button name="button" type="submit" class="btn btn-slim btn--icon btn--plain home-card-overlay-close" bind-event-click="hide()"><svg class="next-icon next-icon--size-12 next-icon--slate-lightest"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use></svg></button>
+  </div>
+
+  <section class="js-home-card-feedback-undo next-card__section next-card__section--home-feedback-undo">
+    <h2 class="next-heading next-heading--half-margin" bind="undoHeading"></h2>
+    <p class="type--subdued" bind="undoMessage"></p>
+
+    <button name="button" type="button" class="btn btn--plain hide" bind-event-click="undo()" bind-show="undoAction">Undo</button>
+  </section>
+</div>
+
+  </div>
+
+</div>
+
+                <div class="ui-feed__item ui-feed__item--card" data-handle="setup_shipping_card" data-card-type="FeedCard" define="{card: new (Shopify['SetupShippingCard'] || Shopify.HomeCard)(this, {&quot;klass&quot;:&quot;setup_shipping_card&quot;,&quot;title&quot;:&quot;Set up how you ship products&quot;,&quot;message&quot;:null,&quot;handle&quot;:&quot;setup_shipping_card&quot;,&quot;card_type&quot;:&quot;FeedCard&quot;,&quot;topic&quot;:&quot;advice&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})}" context="card">
+  <div class="overlaid next-card ">
+    <div class="next-card__section next-card__section--half-spacing next-card__section--space-for-feedback-menu
+  next-card__section--rounded">
+  <div class="next-grid next-grid--no-outside-padding next-grid--margin-top next-grid--margin-bottom">
+    <div class="next-grid__cell">
+
+        <h3 class="next-heading next-heading--no-margin">Set up how you ship products</h3>
+
+        <a class="btn btn-separate-top btn-separate-left" bind-event-click="onAction()" allow-default="1" tg-remote="post" href="/admin/dashboard/review_shipping">Edit shipping settings</a>
+
+
+</div>
+      <div class="next-grid__cell next-grid__cell--no-flex next-grid__cell--aligned-to-end">
+          <div class="default-image" style="background-image: url('//cdn.shopify.com/s/assets/admin/home/text-insights/shipping-box-e481109c852eaf7efc9618de269e81cc0b8a64421df1970a7e38135ce72ed2b3.png');">
+          </div>
+</div></div></div>
+
+
+
+
+
+
+
+
+
+    <div class="overlaid__element overlaid__element--right-top--zindex-safe">
+  <div class="next-popover__container">
+      <button name="button" type="button" class="btn btn--plain btn--icon btn--icon--default-spacing btn--popover-activator" id="next-popover-activator--10" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--10" aria-controls="next-popover--10"><svg class="next-icon next-icon--size-12 next-icon--sky-darker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ellipses"></use></svg></button>
+<div class="next-popover next-popover--half-spacing next-popover--align-to-edge" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--10" aria-labelledby="next-popover-activator--10" aria-expanded="false" style="max-width: none; margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+
+    <ul class="next-list next-list--compact next-list--home-feedback">
+      <li>
+        <button class="next-list__item" bind-event-click="dismiss()">Dismiss</button>
+      </li>
+      <li>
+        <button class="next-list__item" bind-event-click="showFeedbackDialog()">Send feedback</button>
+      </li>
+    </ul>
+</div></div></div></div></div></div>
+
+<div class="js-home-card-feedback-overlay home-card-overlay hide">
+  <section class="js-home-card-feedback-options next-card__section">
+    <h2 class="next-heading next-heading--half-margin">Send feedback:</h2>
+
+    <div class="wrappable">
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="setup_shipping_card_this_is_useful">This is useful</label><input type="radio" name="dismiss_feedback_reason" id="setup_shipping_card_this_is_useful" value="This is useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="setup_shipping_card_this_isn_t_useful">This isn't useful</label><input type="radio" name="dismiss_feedback_reason" id="setup_shipping_card_this_isn_t_useful" value="This isn't useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="setup_shipping_card_this_appears_too_often">This appears too often</label><input type="radio" name="dismiss_feedback_reason" id="setup_shipping_card_this_appears_too_often" value="This appears too often" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+    </div>
+
+    <div class="next-input-wrapper"><label class="next-label"></label><textarea id="" placeholder="Additional comments" rows="3" class="next-textarea feedback-comment" bind="selectedFeedbackComment"></textarea></div>
+
+    <button name="button" type="submit" bind-event-click="submitFeedback()" bind-class="{disabled: !isFeedbackSelected()}" class="btn disabled">Send feedback</button>
+    <button name="button" type="cancel" class="btn btn--plain" bind-event-click="cancelFeedbackDialog()">Cancel</button>
+  </section>
+</div>
+
+    <div class="js-home-card-undo-overlay home-card-overlay hide" bind-show="undoHeading">
+  <div class="overlaid__element overlaid__element--origin-right-top overlaid__element--right-top hide" bind-show="undoAction">
+    <button name="button" type="submit" class="btn btn-slim btn--icon btn--plain home-card-overlay-close" bind-event-click="hide()"><svg class="next-icon next-icon--size-12 next-icon--slate-lightest"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use></svg></button>
+  </div>
+
+  <section class="js-home-card-feedback-undo next-card__section next-card__section--home-feedback-undo">
+    <h2 class="next-heading next-heading--half-margin" bind="undoHeading"></h2>
+    <p class="type--subdued" bind="undoMessage"></p>
+
+    <button name="button" type="button" class="btn btn--plain hide" bind-event-click="undo()" bind-show="undoAction">Undo</button>
+  </section>
+</div>
+
+  </div>
+
+</div>
+
+                <div class="ui-feed__item ui-feed__item--card" data-handle="setup_tax_card" data-card-type="FeedCard" define="{card: new (Shopify['SetupTaxCard'] || Shopify.HomeCard)(this, {&quot;klass&quot;:&quot;setup_tax_card&quot;,&quot;title&quot;:&quot;Review how your store charges taxes&quot;,&quot;message&quot;:&quot;Make sure your tax settings are correct so you can automatically charge the correct taxes and keep accurate records.&quot;,&quot;handle&quot;:&quot;setup_tax_card&quot;,&quot;card_type&quot;:&quot;FeedCard&quot;,&quot;topic&quot;:&quot;advice&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})}" context="card">
+  <div class="overlaid next-card ">
+    <div class="next-card__section next-card__section--half-spacing next-card__section--space-for-feedback-menu
+  next-card__section--rounded">
+  <div class="next-grid next-grid--no-outside-padding next-grid--margin-top next-grid--margin-bottom">
+    <div class="next-grid__cell">
+
+        <h3 class="next-heading next-heading--no-margin">Review how your store charges taxes</h3>
+        <p class="type--base type--half-margin-top">Make sure your tax settings are correct so you can automatically charge the correct taxes and keep accurate records.</p>
+
+        <a class="btn btn-separate-top btn-separate-left" bind-event-click="onAction()" allow-default="1" tg-remote="post" href="/admin/dashboard/review_taxes">Review rates</a>
+
+
+</div>
+      <div class="next-grid__cell next-grid__cell--no-flex next-grid__cell--aligned-to-end">
+          <div class="default-image" style="background-image: url('//cdn.shopify.com/s/assets/admin/home/misc-cards/pages-85d4a743084e75e46e700970664ccfab264f72d25af9f06d411c23203a6d76d7.png');">
+          </div>
+</div></div></div>
+
+
+
+
+
+
+
+
+
+    <div class="overlaid__element overlaid__element--right-top--zindex-safe">
+  <div class="next-popover__container">
+      <button name="button" type="button" class="btn btn--plain btn--icon btn--icon--default-spacing btn--popover-activator" id="next-popover-activator--11" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--11" aria-controls="next-popover--11"><svg class="next-icon next-icon--size-12 next-icon--sky-darker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ellipses"></use></svg></button>
+<div class="next-popover next-popover--half-spacing next-popover--align-to-edge" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--11" aria-labelledby="next-popover-activator--11" aria-expanded="false" style="max-width: none; margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+
+    <ul class="next-list next-list--compact next-list--home-feedback">
+      <li>
+        <button class="next-list__item" bind-event-click="dismiss()">Dismiss</button>
+      </li>
+      <li>
+        <button class="next-list__item" bind-event-click="showFeedbackDialog()">Send feedback</button>
+      </li>
+    </ul>
+</div></div></div></div></div></div>
+
+<div class="js-home-card-feedback-overlay home-card-overlay hide">
+  <section class="js-home-card-feedback-options next-card__section">
+    <h2 class="next-heading next-heading--half-margin">Send feedback:</h2>
+
+    <div class="wrappable">
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="setup_tax_card_this_is_useful">This is useful</label><input type="radio" name="dismiss_feedback_reason" id="setup_tax_card_this_is_useful" value="This is useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="setup_tax_card_this_isn_t_useful">This isn't useful</label><input type="radio" name="dismiss_feedback_reason" id="setup_tax_card_this_isn_t_useful" value="This isn't useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="setup_tax_card_this_appears_too_often">This appears too often</label><input type="radio" name="dismiss_feedback_reason" id="setup_tax_card_this_appears_too_often" value="This appears too often" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+    </div>
+
+    <div class="next-input-wrapper"><label class="next-label"></label><textarea id="" placeholder="Additional comments" rows="3" class="next-textarea feedback-comment" bind="selectedFeedbackComment"></textarea></div>
+
+    <button name="button" type="submit" bind-event-click="submitFeedback()" bind-class="{disabled: !isFeedbackSelected()}" class="btn disabled">Send feedback</button>
+    <button name="button" type="cancel" class="btn btn--plain" bind-event-click="cancelFeedbackDialog()">Cancel</button>
+  </section>
+</div>
+
+    <div class="js-home-card-undo-overlay home-card-overlay hide" bind-show="undoHeading">
+  <div class="overlaid__element overlaid__element--origin-right-top overlaid__element--right-top hide" bind-show="undoAction">
+    <button name="button" type="submit" class="btn btn-slim btn--icon btn--plain home-card-overlay-close" bind-event-click="hide()"><svg class="next-icon next-icon--size-12 next-icon--slate-lightest"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use></svg></button>
+  </div>
+
+  <section class="js-home-card-feedback-undo next-card__section next-card__section--home-feedback-undo">
+    <h2 class="next-heading next-heading--half-margin" bind="undoHeading"></h2>
+    <p class="type--subdued" bind="undoMessage"></p>
+
+    <button name="button" type="button" class="btn btn--plain hide" bind-event-click="undo()" bind-show="undoAction">Undo</button>
+  </section>
+</div>
+
+  </div>
+
+</div>
+
+              <div class="ui-feed__item ui-feed__item--message ui-feed__item--card-context" data-reason="span-class-type-semi-bold-advice-span-based-on-your-social-media-activity">
+                <span class="ui-feed__marker"></span>
+                <span class="next-heading next-heading--no-margin next-heading--tiny next-heading--subdued"><span class="type--semi-bold">Advice</span> based on your social media activity</span>
+              </div>
+
+                <div class="ui-feed__item ui-feed__item--card" data-handle="shopify_picks_card" data-card-type="FeedCard" define="{card: new (Shopify['ShopifyPicksCard'] || Shopify.HomeCard)(this, {&quot;klass&quot;:&quot;shopify_picks_card&quot;,&quot;title&quot;:&quot;Show off your products on #ShopifyPicks&quot;,&quot;message&quot;:&quot;\u003ca href=\&quot;https:\/\/twitter.com\/shopifypicks\&quot;\u003eShopify Picks\u003c\/a\u003e features the best products on Shopify. Your store could be next—submit your products for a chance to reach over 30,000 followers.&quot;,&quot;handle&quot;:&quot;shopify_picks_card&quot;,&quot;card_type&quot;:&quot;FeedCard&quot;,&quot;topic&quot;:&quot;advice&quot;,&quot;reason&quot;:&quot;span-class-type-semi-bold-advice-span-based-on-your-social-media-activity&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})}" context="card">
+  <div class="overlaid next-card ">
+    <div class="next-card__section next-card__section--half-spacing next-card__section--space-for-feedback-menu
+  next-card__section--rounded">
+  <div class="next-grid next-grid--no-outside-padding next-grid--margin-top next-grid--margin-bottom">
+    <div class="next-grid__cell">
+
+        <h3 class="next-heading next-heading--no-margin">Show off your products on #ShopifyPicks</h3>
+        <p class="type--base type--half-margin-top"><a href="https://twitter.com/shopifypicks?utm_source=Shopify&amp;utm_medium=AdminHomefeed" target="_blank" class="external-link">Shopify Picks</a> features the best products on Shopify. Your store could be next—submit your products for a chance to reach over 30,000 followers.</p>
+
+
+</div>
+</div></div>
+
+
+
+<div class="next-card__section next-card__section--no-vertical-spacing next-card__section--no-border">
+  <div class="home-shopify-picks">
+      <div class="home-shopify-picks__product">
+          <a target="_blank" bind-event-click="onAction()" allow-default="1" href="http://manykitchens.com/products/kettle-pipcorn?utm_source=Shopify&amp;utm_medium=AdminHomefeed" class="external-link">
+            <div class="home-shopify-picks__image home-image-overlay" style="background-image: url('//cdn.shopify.com/s/assets/admin/home/shopify-picks/many-kitchens-7d84067c46f6f5541c4e57fde89ed9900a97e8e770fd35717305b1327441f228.jpg');"></div>
+            <p class="type--home-paragraph type--centered">Many Kitchens</p>
+</a>      </div>
+      <div class="home-shopify-picks__product">
+          <a target="_blank" bind-event-click="onAction()" allow-default="1" href="http://stilllifeboutique.com/collections/womens-hats/products/brixton-tiller-hat-black?utm_source=Shopify&amp;utm_medium=AdminHomefeed" class="external-link">
+            <div class="home-shopify-picks__image home-image-overlay" style="background-image: url('//cdn.shopify.com/s/assets/admin/home/shopify-picks/stilllife-9677242b91493f09d7ed87c6c8a6f61825770ea7d1ae5b48aecaa9e3cff60465.jpg');"></div>
+            <p class="type--home-paragraph type--centered">Still Life</p>
+</a>      </div>
+      <div class="home-shopify-picks__product">
+          <a bind-event-click="Shopify.CenterPopup('http://twitter.com/intent/tweet?hashtags=shopifypicks&amp;text=Check+out+the+latest+products+in+our+online+store%3A+http%3A%2F%2Fvavavoo-2.myshopify.com%2Fcollections%2Fall+%2F+%40ShopifyPicks', 'tweetwindow'), onAction()" allow-default="0" href="#">
+            <div class="home-shopify-picks__image home-shopify-picks__image--your-product home-image-overlay" style="background-image: url('//cdn.shopify.com/s/assets/admin/home/onboarding-tasks/onboarding-product-c939b2e482096c44108729606716d52894ba726138d7b24866110f0cd82e1b2b.png');"></div>
+            <p class="type--centered">Your product</p>
+</a>      </div>
+      <div class="home-shopify-picks__product">
+          <a target="_blank" bind-event-click="onAction()" allow-default="1" href="http://www.areaware.com/products/bracelet-flask?utm_source=Shopify&amp;utm_medium=AdminHomefeed" class="external-link">
+            <div class="home-shopify-picks__image home-image-overlay" style="background-image: url('//cdn.shopify.com/s/assets/admin/home/shopify-picks/areaware-c84366b1c19fabce69c63439387425f40ee952ab3bdaa309beb34f035f3e0b97.jpg');"></div>
+            <p class="type--home-paragraph type--centered">Areaware</p>
+</a>      </div>
+      <div class="home-shopify-picks__product">
+          <a target="_blank" bind-event-click="onAction()" allow-default="1" href="http://www.societyb.com/products/scotch-ale-face-shave-beer-soap?utm_source=Shopify&amp;utm_medium=AdminHomefeed" class="external-link">
+            <div class="home-shopify-picks__image home-image-overlay" style="background-image: url('//cdn.shopify.com/s/assets/admin/home/shopify-picks/societyb-d5f2bef047f7a9186842a2eeaf810f7fabb638287cd24698e1d71271d2c71137.jpg');"></div>
+            <p class="type--home-paragraph type--centered">Society B</p>
+</a>      </div>
+  </div>
+</div>
+
+<div class="next-card__section next-card__section--no-border next-card__section--deferred-home-buttons">
+  <a class="btn btn-separate-left" bind-event-click="Shopify.CenterPopup('http://twitter.com/intent/tweet?hashtags=shopifypicks&amp;text=Check+out+the+latest+products+in+our+online+store%3A+http%3A%2F%2Fvavavoo-2.myshopify.com%2Fcollections%2Fall+%2F+%40ShopifyPicks', 'tweetwindow'), onAction()" allow-default="0" href="#">Submit your products</a>
+</div>
+
+
+
+
+
+
+    <div class="overlaid__element overlaid__element--right-top--zindex-safe">
+  <div class="next-popover__container">
+      <button name="button" type="button" class="btn btn--plain btn--icon btn--icon--default-spacing btn--popover-activator" id="next-popover-activator--12" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--12" aria-controls="next-popover--12"><svg class="next-icon next-icon--size-12 next-icon--sky-darker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ellipses"></use></svg></button>
+<div class="next-popover next-popover--half-spacing next-popover--align-to-edge" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--12" aria-labelledby="next-popover-activator--12" aria-expanded="false" style="max-width: none; margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+
+    <ul class="next-list next-list--compact next-list--home-feedback">
+      <li>
+        <button class="next-list__item" bind-event-click="dismiss()">Dismiss</button>
+      </li>
+      <li>
+        <button class="next-list__item" bind-event-click="showFeedbackDialog()">Send feedback</button>
+      </li>
+    </ul>
+</div></div></div></div></div></div>
+
+<div class="js-home-card-feedback-overlay home-card-overlay hide">
+  <section class="js-home-card-feedback-options next-card__section">
+    <h2 class="next-heading next-heading--half-margin">Send feedback:</h2>
+
+    <div class="wrappable">
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="shopify_picks_card_this_is_useful">This is useful</label><input type="radio" name="dismiss_feedback_reason" id="shopify_picks_card_this_is_useful" value="This is useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="shopify_picks_card_this_isn_t_useful">This isn't useful</label><input type="radio" name="dismiss_feedback_reason" id="shopify_picks_card_this_isn_t_useful" value="This isn't useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="shopify_picks_card_this_appears_too_often">This appears too often</label><input type="radio" name="dismiss_feedback_reason" id="shopify_picks_card_this_appears_too_often" value="This appears too often" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+    </div>
+
+    <div class="next-input-wrapper"><label class="next-label"></label><textarea id="" placeholder="Additional comments" rows="3" class="next-textarea feedback-comment" bind="selectedFeedbackComment"></textarea></div>
+
+    <button name="button" type="submit" bind-event-click="submitFeedback()" bind-class="{disabled: !isFeedbackSelected()}" class="btn disabled">Send feedback</button>
+    <button name="button" type="cancel" class="btn btn--plain" bind-event-click="cancelFeedbackDialog()">Cancel</button>
+  </section>
+</div>
+
+    <div class="js-home-card-undo-overlay home-card-overlay hide" bind-show="undoHeading">
+  <div class="overlaid__element overlaid__element--origin-right-top overlaid__element--right-top hide" bind-show="undoAction">
+    <button name="button" type="submit" class="btn btn-slim btn--icon btn--plain home-card-overlay-close" bind-event-click="hide()"><svg class="next-icon next-icon--size-12 next-icon--slate-lightest"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use></svg></button>
+  </div>
+
+  <section class="js-home-card-feedback-undo next-card__section next-card__section--home-feedback-undo">
+    <h2 class="next-heading next-heading--half-margin" bind="undoHeading"></h2>
+    <p class="type--subdued" bind="undoMessage"></p>
+
+    <button name="button" type="button" class="btn btn--plain hide" bind-event-click="undo()" bind-show="undoAction">Undo</button>
+  </section>
+</div>
+
+  </div>
+
+</div>
+
+        </div>
+      </div>
+      <div class="ui-feed" style="z-index: 2;" data-topic="insights">
+        <div class="ui-feed__section">
+          <div class="ui-feed__item ui-feed__item--heading">
+            <div class="ui-feed__marker">
+              <div class="frame frame--32 frame--fill frame--circle frame--alternate-border frame--insights">
+                <svg class="next-icon next-icon--size-16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-reports"></use></svg>
+              </div>
+            </div>
+
+            <h2 class="next-heading next-heading--no-margin next-heading--small next-heading--subdued next-heading--semi-bold">Insights</h2>
+          </div>
+
+              <div class="ui-feed__item ui-feed__item--message ui-feed__item--card-context" data-reason="because-you-told-us-your-industry-is-span-class-type-semi-bold-fashion-and-apparel-span">
+                <span class="ui-feed__marker"></span>
+                <span class="next-heading next-heading--no-margin next-heading--tiny next-heading--subdued">Because you told us your industry is <span class="type--semi-bold">Fashion and Apparel</span></span>
+              </div>
+
+                <div class="ui-feed__item ui-feed__item--card" data-handle="fashion-and-apparel-industry-social-traffic-sources" data-card-type="IndustryTrafficSourcesCard" define="{card: new (Shopify['IndustryTrafficSourcesCard'] || Shopify.HomeCard)(this, {&quot;klass&quot;:&quot;industry_traffic_sources_card&quot;,&quot;title&quot;:&quot;Your industry gets social traffic from \u003ca href='https:\/\/wanelo.com\/'\u003eWanelo\u003c\/a\u003e, \u003ca href='https:\/\/instagram.com\/'\u003eInstagram\u003c\/a\u003e and \u003ca href='http:\/\/www.polyvore.com\/'\u003ePolyvore\u003c\/a\u003e&quot;,&quot;message&quot;:&quot;Try promoting your products on platforms like these to attract new customers.&quot;,&quot;handle&quot;:&quot;fashion-and-apparel-industry-social-traffic-sources&quot;,&quot;card_type&quot;:&quot;IndustryTrafficSourcesCard&quot;,&quot;topic&quot;:&quot;insights&quot;,&quot;reason&quot;:&quot;because-you-told-us-your-industry-is-span-class-type-semi-bold-fashion-and-apparel-span&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})}" context="card">
+  <div class="overlaid next-card ">
+    <div class="next-card__section next-card__section--half-spacing next-card__section--space-for-feedback-menu
+  next-card__section--rounded">
+  <div class="next-grid next-grid--no-outside-padding next-grid--margin-top next-grid--margin-bottom">
+    <div class="next-grid__cell">
+
+        <h3 class="next-heading next-heading--no-margin">Your industry gets social traffic from <a href="https://wanelo.com/?utm_source=Shopify&amp;utm_medium=AdminHomefeed" target="_blank" class="external-link">Wanelo</a>, <a href="https://instagram.com/?utm_source=Shopify&amp;utm_medium=AdminHomefeed" target="_blank" class="external-link">Instagram</a> and <a href="http://www.polyvore.com/?utm_source=Shopify&amp;utm_medium=AdminHomefeed" target="_blank" class="external-link">Polyvore</a></h3>
+        <p class="type--base type--half-margin-top">Try promoting your products on platforms like these to attract new customers.</p>
+
+        <a class="btn btn-separate-top btn-separate-left external-link" bind-event-click="onAction()" allow-default="1" href="https://www.shopify.ca/blog/13815533-how-to-use-polyvore-to-drive-traffic-and-sales-for-your-online-store?utm_source=Shopify&amp;utm_medium=AdminHomefeed" target="_blank">Learn more</a>
+
+
+</div>
+      <div class="next-grid__cell next-grid__cell--no-flex next-grid__cell--aligned-to-end">
+          <div class="default-image" style="background-image: url('//cdn.shopify.com/s/assets/admin/home/industry-illustrations/fashion-and-apparel@2x-bw-9a366efccd1609ff92f8561a4aaa58be0a5f7bd159cb35435b1c8bb017f2aef2.png');">
+          </div>
+</div></div></div>
+
+
+
+
+
+
+
+
+
+    <div class="overlaid__element overlaid__element--right-top--zindex-safe">
+  <div class="next-popover__container">
+      <button name="button" type="button" class="btn btn--plain btn--icon btn--icon--default-spacing btn--popover-activator" id="next-popover-activator--13" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--13" aria-controls="next-popover--13"><svg class="next-icon next-icon--size-12 next-icon--sky-darker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ellipses"></use></svg></button>
+<div class="next-popover next-popover--half-spacing next-popover--align-to-edge" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--13" aria-labelledby="next-popover-activator--13" aria-expanded="false" style="max-width: none; margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+
+    <ul class="next-list next-list--compact next-list--home-feedback">
+      <li>
+        <button class="next-list__item" bind-event-click="dismiss()">Dismiss</button>
+      </li>
+      <li>
+        <button class="next-list__item" bind-event-click="showFeedbackDialog()">Send feedback</button>
+      </li>
+    </ul>
+</div></div></div></div></div></div>
+
+<div class="js-home-card-feedback-overlay home-card-overlay hide">
+  <section class="js-home-card-feedback-options next-card__section">
+    <h2 class="next-heading next-heading--half-margin">Send feedback:</h2>
+
+    <div class="wrappable">
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="fashion_and_apparel_industry_social_traffic_sources_this_is_useful">This is useful</label><input type="radio" name="dismiss_feedback_reason" id="fashion_and_apparel_industry_social_traffic_sources_this_is_useful" value="This is useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="fashion_and_apparel_industry_social_traffic_sources_this_isn_t_useful">This isn't useful</label><input type="radio" name="dismiss_feedback_reason" id="fashion_and_apparel_industry_social_traffic_sources_this_isn_t_useful" value="This isn't useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="fashion_and_apparel_industry_social_traffic_sources_this_appears_too_often">This appears too often</label><input type="radio" name="dismiss_feedback_reason" id="fashion_and_apparel_industry_social_traffic_sources_this_appears_too_often" value="This appears too often" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+    </div>
+
+    <div class="next-input-wrapper"><label class="next-label"></label><textarea id="" placeholder="Additional comments" rows="3" class="next-textarea feedback-comment" bind="selectedFeedbackComment"></textarea></div>
+
+    <button name="button" type="submit" bind-event-click="submitFeedback()" bind-class="{disabled: !isFeedbackSelected()}" class="btn disabled">Send feedback</button>
+    <button name="button" type="cancel" class="btn btn--plain" bind-event-click="cancelFeedbackDialog()">Cancel</button>
+  </section>
+</div>
+
+    <div class="js-home-card-undo-overlay home-card-overlay hide" bind-show="undoHeading">
+  <div class="overlaid__element overlaid__element--origin-right-top overlaid__element--right-top hide" bind-show="undoAction">
+    <button name="button" type="submit" class="btn btn-slim btn--icon btn--plain home-card-overlay-close" bind-event-click="hide()"><svg class="next-icon next-icon--size-12 next-icon--slate-lightest"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use></svg></button>
+  </div>
+
+  <section class="js-home-card-feedback-undo next-card__section next-card__section--home-feedback-undo">
+    <h2 class="next-heading next-heading--half-margin" bind="undoHeading"></h2>
+    <p class="type--subdued" bind="undoMessage"></p>
+
+    <button name="button" type="button" class="btn btn--plain hide" bind-event-click="undo()" bind-show="undoAction">Undo</button>
+  </section>
+</div>
+
+  </div>
+
+</div>
+
+        </div>
+      </div>
+      <div class="ui-feed" style="z-index: 1;" data-topic="blog">
+        <div class="ui-feed__section">
+          <div class="ui-feed__item ui-feed__item--heading">
+            <div class="ui-feed__marker">
+              <div class="frame frame--32 frame--fill frame--circle frame--alternate-border frame--blog">
+                <svg class="next-icon next-icon--size-16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-preview"></use></svg>
+              </div>
+            </div>
+
+            <h2 class="next-heading next-heading--no-margin next-heading--small next-heading--subdued next-heading--semi-bold">Recommended reading</h2>
+          </div>
+
+
+                <div class="ui-feed__item ui-feed__item--card" data-handle="how-to-get-a-massive-following-on-instagram" data-card-type="ContentCard" define="{card: new (Shopify['ContentCard'] || Shopify.HomeCard)(this, {&quot;klass&quot;:&quot;content_card&quot;,&quot;title&quot;:&quot;How to build a massive following on Instagram&quot;,&quot;message&quot;:null,&quot;handle&quot;:&quot;how-to-get-a-massive-following-on-instagram&quot;,&quot;card_type&quot;:&quot;ContentCard&quot;,&quot;topic&quot;:&quot;blog&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})}" context="card">
+  <div class="overlaid next-card next-card--with-full-height-image">
+    <a class="js-internal external-link" target="_blank" href="http://www.shopify.ca/blog/14288561-how-to-build-a-massive-following-on-instagram?utm_source=Shopify&amp;utm_medium=AdminHomefeed" bind-event-click="onAction()" allow-default="1">
+  <div class="next-card__image" style="max-width: 100%; margin-left: 0; background-image: url(//cdn.shopify.com/s/assets/admin/home/blogs/blog-instagram-2f20d822b388cf9b66bddaddfe29487d4029f290f3f2d7e11b224e84a9a85aba.jpg)"></div>
+</a>
+
+<div class="next-card__section next-card__section--three-quarter-spacing">
+  <p class="type--base type--quarter-margin">
+    <a class="js-internal type--blog-category external-link" target="_blank" href="https://www.shopify.com/blog/topics/how-to-sell-online?utm_source=Shopify&amp;utm_medium=AdminHomefeed">How to sell online</a>
+  </p>
+
+  <a class="js-internal next-heading next-heading--blog-card next-heading--no-margin external-link" style="margin: 0;" target="_blank" href="http://www.shopify.ca/blog/14288561-how-to-build-a-massive-following-on-instagram?utm_source=Shopify&amp;utm_medium=AdminHomefeed" bind-event-click="onAction({&quot;klass&quot;:&quot;content_card&quot;,&quot;title&quot;:&quot;How to build a massive following on Instagram&quot;,&quot;message&quot;:null,&quot;handle&quot;:&quot;how-to-get-a-massive-following-on-instagram&quot;,&quot;card_type&quot;:&quot;ContentCard&quot;,&quot;topic&quot;:&quot;blog&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})" allow-default="1">How to build a massive following on Instagram</a>
+</div>
+
+
+
+    <div class="overlaid__element overlaid__element--right-top--zindex-safe">
+  <div class="next-popover__container">
+      <button name="button" type="button" class="btn btn--plain btn--icon btn--icon--default-spacing btn--popover-activator" id="next-popover-activator--14" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--14" aria-controls="next-popover--14"><svg class="next-icon next-icon--size-12 next-icon--sky-darker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ellipses"></use></svg></button>
+<div class="next-popover next-popover--half-spacing next-popover--align-to-edge" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--14" aria-labelledby="next-popover-activator--14" aria-expanded="false" style="max-width: none; margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+
+    <ul class="next-list next-list--compact next-list--home-feedback">
+      <li>
+        <button class="next-list__item" bind-event-click="dismiss()">Dismiss</button>
+      </li>
+      <li>
+        <button class="next-list__item" bind-event-click="showFeedbackDialog()">Send feedback</button>
+      </li>
+    </ul>
+</div></div></div></div></div></div>
+
+<div class="js-home-card-feedback-overlay home-card-overlay hide">
+  <section class="js-home-card-feedback-options next-card__section">
+    <h2 class="next-heading next-heading--half-margin">Send feedback:</h2>
+
+    <div class="wrappable">
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="how_to_get_a_massive_following_on_instagram_this_is_useful">This is useful</label><input type="radio" name="dismiss_feedback_reason" id="how_to_get_a_massive_following_on_instagram_this_is_useful" value="This is useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="how_to_get_a_massive_following_on_instagram_this_isn_t_useful">This isn't useful</label><input type="radio" name="dismiss_feedback_reason" id="how_to_get_a_massive_following_on_instagram_this_isn_t_useful" value="This isn't useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="how_to_get_a_massive_following_on_instagram_this_appears_too_often">This appears too often</label><input type="radio" name="dismiss_feedback_reason" id="how_to_get_a_massive_following_on_instagram_this_appears_too_often" value="This appears too often" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+    </div>
+
+    <div class="next-input-wrapper"><label class="next-label"></label><textarea id="" placeholder="Additional comments" rows="3" class="next-textarea feedback-comment" bind="selectedFeedbackComment"></textarea></div>
+
+    <button name="button" type="submit" bind-event-click="submitFeedback()" bind-class="{disabled: !isFeedbackSelected()}" class="btn disabled">Send feedback</button>
+    <button name="button" type="cancel" class="btn btn--plain" bind-event-click="cancelFeedbackDialog()">Cancel</button>
+  </section>
+</div>
+
+    <div class="js-home-card-undo-overlay home-card-overlay hide" bind-show="undoHeading">
+  <div class="overlaid__element overlaid__element--origin-right-top overlaid__element--right-top hide" bind-show="undoAction">
+    <button name="button" type="submit" class="btn btn-slim btn--icon btn--plain home-card-overlay-close" bind-event-click="hide()"><svg class="next-icon next-icon--size-12 next-icon--slate-lightest"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use></svg></button>
+  </div>
+
+  <section class="js-home-card-feedback-undo next-card__section next-card__section--home-feedback-undo">
+    <h2 class="next-heading next-heading--half-margin" bind="undoHeading"></h2>
+    <p class="type--subdued" bind="undoMessage"></p>
+
+    <button name="button" type="button" class="btn btn--plain hide" bind-event-click="undo()" bind-show="undoAction">Undo</button>
+  </section>
+</div>
+
+  </div>
+
+</div>
+
+                <div class="ui-feed__item ui-feed__item--card" data-handle="22-awesome-free-stock-images" data-card-type="ContentCard" define="{card: new (Shopify['ContentCard'] || Shopify.HomeCard)(this, {&quot;klass&quot;:&quot;content_card&quot;,&quot;title&quot;:&quot;22 awesome free stock images&quot;,&quot;message&quot;:null,&quot;handle&quot;:&quot;22-awesome-free-stock-images&quot;,&quot;card_type&quot;:&quot;ContentCard&quot;,&quot;topic&quot;:&quot;blog&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})}" context="card">
+  <div class="overlaid next-card next-card--with-full-height-image">
+    <a class="js-internal external-link" target="_blank" href="http://www.shopify.com/blog/17156388-22-awesome-websites-with-stunning-free-stock-images?utm_source=Shopify&amp;utm_medium=AdminHomefeed" bind-event-click="onAction()" allow-default="1">
+  <div class="next-card__image" style="max-width: 100%; margin-left: 0; background-image: url(//cdn.shopify.com/s/assets/admin/home/blogs/blog-22-awesome-stock-images-23b5658e7b14e4c6c06ba139f84d306cda4992fca123cc40ccfabbeb31373cc8.jpg)"></div>
+</a>
+
+<div class="next-card__section next-card__section--three-quarter-spacing">
+  <p class="type--base type--quarter-margin">
+    <a class="js-internal type--blog-category external-link" target="_blank" href="https://www.shopify.com/blog/topics/how-to-sell-online?utm_source=Shopify&amp;utm_medium=AdminHomefeed">How to sell online</a>
+  </p>
+
+  <a class="js-internal next-heading next-heading--blog-card next-heading--no-margin external-link" style="margin: 0;" target="_blank" href="http://www.shopify.com/blog/17156388-22-awesome-websites-with-stunning-free-stock-images?utm_source=Shopify&amp;utm_medium=AdminHomefeed" bind-event-click="onAction({&quot;klass&quot;:&quot;content_card&quot;,&quot;title&quot;:&quot;22 awesome free stock images&quot;,&quot;message&quot;:null,&quot;handle&quot;:&quot;22-awesome-free-stock-images&quot;,&quot;card_type&quot;:&quot;ContentCard&quot;,&quot;topic&quot;:&quot;blog&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})" allow-default="1">22 awesome free stock images</a>
+</div>
+
+
+
+    <div class="overlaid__element overlaid__element--right-top--zindex-safe">
+  <div class="next-popover__container">
+      <button name="button" type="button" class="btn btn--plain btn--icon btn--icon--default-spacing btn--popover-activator" id="next-popover-activator--15" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--15" aria-controls="next-popover--15"><svg class="next-icon next-icon--size-12 next-icon--sky-darker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ellipses"></use></svg></button>
+<div class="next-popover next-popover--half-spacing next-popover--align-to-edge" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--15" aria-labelledby="next-popover-activator--15" aria-expanded="false" style="max-width: none; margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+
+    <ul class="next-list next-list--compact next-list--home-feedback">
+      <li>
+        <button class="next-list__item" bind-event-click="dismiss()">Dismiss</button>
+      </li>
+      <li>
+        <button class="next-list__item" bind-event-click="showFeedbackDialog()">Send feedback</button>
+      </li>
+    </ul>
+</div></div></div></div></div></div>
+
+<div class="js-home-card-feedback-overlay home-card-overlay hide">
+  <section class="js-home-card-feedback-options next-card__section">
+    <h2 class="next-heading next-heading--half-margin">Send feedback:</h2>
+
+    <div class="wrappable">
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="22_awesome_free_stock_images_this_is_useful">This is useful</label><input type="radio" name="dismiss_feedback_reason" id="22_awesome_free_stock_images_this_is_useful" value="This is useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="22_awesome_free_stock_images_this_isn_t_useful">This isn't useful</label><input type="radio" name="dismiss_feedback_reason" id="22_awesome_free_stock_images_this_isn_t_useful" value="This isn't useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="22_awesome_free_stock_images_this_appears_too_often">This appears too often</label><input type="radio" name="dismiss_feedback_reason" id="22_awesome_free_stock_images_this_appears_too_often" value="This appears too often" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+    </div>
+
+    <div class="next-input-wrapper"><label class="next-label"></label><textarea id="" placeholder="Additional comments" rows="3" class="next-textarea feedback-comment" bind="selectedFeedbackComment"></textarea></div>
+
+    <button name="button" type="submit" bind-event-click="submitFeedback()" bind-class="{disabled: !isFeedbackSelected()}" class="btn disabled">Send feedback</button>
+    <button name="button" type="cancel" class="btn btn--plain" bind-event-click="cancelFeedbackDialog()">Cancel</button>
+  </section>
+</div>
+
+    <div class="js-home-card-undo-overlay home-card-overlay hide" bind-show="undoHeading">
+  <div class="overlaid__element overlaid__element--origin-right-top overlaid__element--right-top hide" bind-show="undoAction">
+    <button name="button" type="submit" class="btn btn-slim btn--icon btn--plain home-card-overlay-close" bind-event-click="hide()"><svg class="next-icon next-icon--size-12 next-icon--slate-lightest"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use></svg></button>
+  </div>
+
+  <section class="js-home-card-feedback-undo next-card__section next-card__section--home-feedback-undo">
+    <h2 class="next-heading next-heading--half-margin" bind="undoHeading"></h2>
+    <p class="type--subdued" bind="undoMessage"></p>
+
+    <button name="button" type="button" class="btn btn--plain hide" bind-event-click="undo()" bind-show="undoAction">Undo</button>
+  </section>
+</div>
+
+  </div>
+
+</div>
+
+                <div class="ui-feed__item ui-feed__item--card" data-handle="blog-elevator-pitch" data-card-type="ContentCard" define="{card: new (Shopify['ContentCard'] || Shopify.HomeCard)(this, {&quot;klass&quot;:&quot;content_card&quot;,&quot;title&quot;:&quot;How to write a compelling elevator pitch that sticks&quot;,&quot;message&quot;:null,&quot;handle&quot;:&quot;blog-elevator-pitch&quot;,&quot;card_type&quot;:&quot;ContentCard&quot;,&quot;topic&quot;:&quot;blog&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})}" context="card">
+  <div class="overlaid next-card next-card--with-full-height-image">
+    <a class="js-internal external-link" target="_blank" href="https://www.shopify.com/blog/76432325-how-to-write-a-compelling-elevator-pitch-that-sticks-plus-3-templates-you-can-steal?utm_source=Shopify&amp;utm_medium=AdminHomefeed" bind-event-click="onAction()" allow-default="1">
+  <div class="next-card__image" style="max-width: 100%; margin-left: 0; background-image: url(//cdn.shopify.com/s/assets/admin/home/blogs/blog-elevator-pitch-083872f2761e622f8e6a470279e2ebb209d51692071178305519ee8663521d48.jpg)"></div>
+</a>
+
+<div class="next-card__section next-card__section--three-quarter-spacing">
+  <p class="type--base type--quarter-margin">
+    <a class="js-internal type--blog-category external-link" target="_blank" href="https://www.shopify.com/blog/topics/how-to-sell-online?utm_source=Shopify&amp;utm_medium=AdminHomefeed">How to sell online</a>
+  </p>
+
+  <a class="js-internal next-heading next-heading--blog-card next-heading--no-margin external-link" style="margin: 0;" target="_blank" href="https://www.shopify.com/blog/76432325-how-to-write-a-compelling-elevator-pitch-that-sticks-plus-3-templates-you-can-steal?utm_source=Shopify&amp;utm_medium=AdminHomefeed" bind-event-click="onAction({&quot;klass&quot;:&quot;content_card&quot;,&quot;title&quot;:&quot;How to write a compelling elevator pitch that sticks&quot;,&quot;message&quot;:null,&quot;handle&quot;:&quot;blog-elevator-pitch&quot;,&quot;card_type&quot;:&quot;ContentCard&quot;,&quot;topic&quot;:&quot;blog&quot;,&quot;reason&quot;:&quot;&quot;,&quot;dismiss_message&quot;:&quot;You won't see it in your home feed anymore.&quot;,&quot;dismissed_at&quot;:null,&quot;register_card_engagement_url&quot;:&quot;\/admin\/home\/register_card_engagement&quot;,&quot;upvote_card_url&quot;:&quot;\/admin\/home\/upvote_card&quot;,&quot;downvote_card_url&quot;:&quot;\/admin\/home\/downvote_card&quot;,&quot;dismiss_card_url&quot;:&quot;\/admin\/home\/dismiss_card&quot;,&quot;undo_dismiss_card_url&quot;:&quot;\/admin\/home\/undo_dismiss_card&quot;,&quot;submit_feedback_url&quot;:&quot;\/admin\/home\/submit_feedback&quot;})" allow-default="1">How to write a compelling elevator pitch that sticks</a>
+</div>
+
+
+
+    <div class="overlaid__element overlaid__element--right-top--zindex-safe">
+  <div class="next-popover__container">
+      <button name="button" type="button" class="btn btn--plain btn--icon btn--icon--default-spacing btn--popover-activator" id="next-popover-activator--16" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--16" aria-controls="next-popover--16"><svg class="next-icon next-icon--size-12 next-icon--sky-darker"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ellipses"></use></svg></button>
+<div class="next-popover next-popover--half-spacing next-popover--align-to-edge" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--16" aria-labelledby="next-popover-activator--16" aria-expanded="false" style="max-width: none; margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+
+    <ul class="next-list next-list--compact next-list--home-feedback">
+      <li>
+        <button class="next-list__item" bind-event-click="dismiss()">Dismiss</button>
+      </li>
+      <li>
+        <button class="next-list__item" bind-event-click="showFeedbackDialog()">Send feedback</button>
+      </li>
+    </ul>
+</div></div></div></div></div></div>
+
+<div class="js-home-card-feedback-overlay home-card-overlay hide">
+  <section class="js-home-card-feedback-options next-card__section">
+    <h2 class="next-heading next-heading--half-margin">Send feedback:</h2>
+
+    <div class="wrappable">
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="blog_elevator_pitch_this_is_useful">This is useful</label><input type="radio" name="dismiss_feedback_reason" id="blog_elevator_pitch_this_is_useful" value="This is useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="blog_elevator_pitch_this_isn_t_useful">This isn't useful</label><input type="radio" name="dismiss_feedback_reason" id="blog_elevator_pitch_this_isn_t_useful" value="This isn't useful" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+        <div class="wrappable__item">
+          <div class="next-input-wrapper"><label class="next-label next-label--switch" for="blog_elevator_pitch_this_appears_too_often">This appears too often</label><input type="radio" name="dismiss_feedback_reason" id="blog_elevator_pitch_this_appears_too_often" value="This appears too often" class="next-radio feedback-reason" bind="selectedFeedbackOption"><span class="next-radio--styled"></span></div>
+        </div>
+    </div>
+
+    <div class="next-input-wrapper"><label class="next-label"></label><textarea id="" placeholder="Additional comments" rows="3" class="next-textarea feedback-comment" bind="selectedFeedbackComment"></textarea></div>
+
+    <button name="button" type="submit" bind-event-click="submitFeedback()" bind-class="{disabled: !isFeedbackSelected()}" class="btn disabled">Send feedback</button>
+    <button name="button" type="cancel" class="btn btn--plain" bind-event-click="cancelFeedbackDialog()">Cancel</button>
+  </section>
+</div>
+
+    <div class="js-home-card-undo-overlay home-card-overlay hide" bind-show="undoHeading">
+  <div class="overlaid__element overlaid__element--origin-right-top overlaid__element--right-top hide" bind-show="undoAction">
+    <button name="button" type="submit" class="btn btn-slim btn--icon btn--plain home-card-overlay-close" bind-event-click="hide()"><svg class="next-icon next-icon--size-12 next-icon--slate-lightest"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use></svg></button>
+  </div>
+
+  <section class="js-home-card-feedback-undo next-card__section next-card__section--home-feedback-undo">
+    <h2 class="next-heading next-heading--half-margin" bind="undoHeading"></h2>
+    <p class="type--subdued" bind="undoMessage"></p>
+
+    <button name="button" type="button" class="btn btn--plain hide" bind-event-click="undo()" bind-show="undoAction">Undo</button>
+  </section>
+</div>
+
+  </div>
+
+</div>
+
+        </div>
+      </div>
+  </div>
+
+    <div class="page__sidebar">
+        <div class="next-card next-card--aside-lighter next-card--stacked" id="humanized-datepicker" context="home.humanizedDatepicker">
+  <div class="next-popover__container next-popover__container--full-width next-popover__container--border-when-active">
+      <div class="next-card__section next-card__section--half-spacing" id="next-popover-activator--17" aria-expanded="false" aria-haspopup="true" aria-owns="next-popover--17" aria-controls="next-popover--17">
+        <div class="next-grid next-grid--no-outside-padding next-grid--compact">
+          <div class="next-grid__cell">
+            <div class="next-grid next-grid--column next-grid--more-compact">
+              <div class="next-grid__cell">
+                <h1 class="next-heading next-heading--small next-heading--no-margin type--truncated type--truncated--block" bind="startDateInWords">Last 7 days</h1>
+              </div>
+              <div class="next-grid__cell">
+                <p class="type--truncated type--truncated--block" bind="startDateInNumbers">Mar 5–Mar 11</p>
+              </div>
+            </div>
+          </div>
+          <div class="next-grid__cell next-grid__cell--no-flex">
+            <svg class="next-icon next-icon--size-12 next-icon--no-nudge next-icon--slate-lighter"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-chevron-down"></use></svg>
+          </div>
+        </div>
+      </div>
+<div data-popover-horizontally-relative-to-closest=".next-card" class="next-popover next-popover--full-width" data-popover-css-vertical-margin="15" data-popover-css-horizontal-margin="20" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="next-popover--17" aria-labelledby="next-popover-activator--17" aria-expanded="false" style="margin-right: 0px; margin-left: 0px;"><div class="next-popover__tooltip"></div><div class="next-popover__content-wrapper"><div class="next-popover__content"><div class="next-popover__pane">
+        <ul class="next-list next-list--compact next-list--toggles">
+        <li>
+          <a href="#" class="next-list__item" bind-class="{'next-list__item--is-applied': currentRange == &quot;today&quot;}" bind-event-click="selectRange(this, &quot;today&quot;)">
+            <div class="next-grid next-grid--no-outside-padding next-grid--compact next-grid--vertically-centered">
+              <div class="next-grid__cell next-grid__cell--no-flex">
+                <svg class="next-icon next-icon--size-12 next-icon--no-nudge next-icon--sky-light"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-checkmark"></use></svg>
+              </div>
+              <div class="next-grid__cell">
+                <p class="type--semi-bold">Today</p>
+                <small>Mar 12</small>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="next-list__item" bind-class="{'next-list__item--is-applied': currentRange == &quot;yesterday&quot;}" bind-event-click="selectRange(this, &quot;yesterday&quot;)">
+            <div class="next-grid next-grid--no-outside-padding next-grid--compact next-grid--vertically-centered">
+              <div class="next-grid__cell next-grid__cell--no-flex">
+                <svg class="next-icon next-icon--size-12 next-icon--no-nudge next-icon--sky-light"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-checkmark"></use></svg>
+              </div>
+              <div class="next-grid__cell">
+                <p class="type--semi-bold">Yesterday</p>
+                <small>Mar 11</small>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="next-list__item next-list__item--is-applied" bind-class="{'next-list__item--is-applied': currentRange == &quot;last7days&quot;}" bind-event-click="selectRange(this, &quot;last7days&quot;)">
+            <div class="next-grid next-grid--no-outside-padding next-grid--compact next-grid--vertically-centered">
+              <div class="next-grid__cell next-grid__cell--no-flex">
+                <svg class="next-icon next-icon--size-12 next-icon--no-nudge next-icon--sky-light"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-checkmark"></use></svg>
+              </div>
+              <div class="next-grid__cell">
+                <p class="type--semi-bold">Last 7 days</p>
+                <small>Mar 5–Mar 11</small>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="next-list__item" bind-class="{'next-list__item--is-applied': currentRange == &quot;last30days&quot;}" bind-event-click="selectRange(this, &quot;last30days&quot;)">
+            <div class="next-grid next-grid--no-outside-padding next-grid--compact next-grid--vertically-centered">
+              <div class="next-grid__cell next-grid__cell--no-flex">
+                <svg class="next-icon next-icon--size-12 next-icon--no-nudge next-icon--sky-light"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-checkmark"></use></svg>
+              </div>
+              <div class="next-grid__cell">
+                <p class="type--semi-bold">Last 30 days</p>
+                <small>Feb 11–Mar 11</small>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="next-list__item" bind-class="{'next-list__item--is-applied': currentRange == &quot;last90days&quot;}" bind-event-click="selectRange(this, &quot;last90days&quot;)">
+            <div class="next-grid next-grid--no-outside-padding next-grid--compact next-grid--vertically-centered">
+              <div class="next-grid__cell next-grid__cell--no-flex">
+                <svg class="next-icon next-icon--size-12 next-icon--no-nudge next-icon--sky-light"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-checkmark"></use></svg>
+              </div>
+              <div class="next-grid__cell">
+                <p class="type--semi-bold">Last 90 days</p>
+                <small>Dec 13–Mar 11</small>
+              </div>
+            </div>
+          </a>
+        </li>
+    </ul>
+</div></div></div></div></div></div>
+
+
+        <hr class="next-card__separator">
+<div class="next-card next-card--aside-lighter next-card--stacked">
+  <header class="next-card__header">
+    <h2 class="next-heading next-heading--small type--line-height-equal-to-font">Engagement</h2>
+  </header>
+  <div define="{salesFeature: new Shopify.EngagementFeature(this, home, {&quot;channels&quot;:[],&quot;token&quot;:&quot;WyIxMTgyNDc1MiIsIjIwMTYtMDMtMTJUMTc6MzM6MzYtMDU6MDAiXQ==--8b56702f2c916651d9412c8fe979f9ab84ceb06a&quot;})}" style="opacity: 1;"><section class="next-card__section highlight-children highlight-children--no-outline" tabindex="0">
+  <div class="next-grid next-grid--no-outside-padding next-grid--compact">
+    <div class="next-grid__cell">
+      <h3 class="next-heading next-heading--callout next-heading--callout--darker next-heading--half-margin type--line-height-equal-to-font">Online Store</h3>
+
+      <div class="next-grid next-grid--no-padding next-grid--aligned-to-end next-grid--space-between">
+        <div class="next-grid__cell next-grid__cell--no-flex">
+          <div class="next-grid next-grid--column next-grid--more-compact">
+            <div class="next-grid__cell">
+              <h4 class="next-heading next-heading--no-margin type--line-height-equal-to-font">3 visitors</h4>
+            </div>
+
+            <div class="next-grid__cell">
+              <p class="type--subdued">2 unique</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="next-grid__cell next-grid__cell--no-flex">
+          <div class="next-grid next-grid--column next-grid--more-compact next-grid--aligned-to-end">
+            <div class="next-grid__cell">
+              <h3 class="next-heading next-heading--no-margin type--line-height-equal-to-font">
+                <span class="tooltip tooltip-right-align tooltip-top">
+                  <div class="tooltip-container">
+                    <span class="tooltip-label">
+                      <span class="small-font">Feb 27–Mar 4</span><br>
+                      <span class="large-font">5 visitors</span><br>
+                      <span class="small-font">5 unique</span>
+                    </span>
+                  </div>
+
+
+
+                      <span class="next-heading--tiny next-heading--quarter-margin type--danger highlight-children__underdash highlight-children__underdash--danger">-40%</span>
+
+
+                </span>
+              </h3>
+            </div>
+
+            <div class="next-grid__cell">
+
+                <a href="/admin/dashboard/online?interval=last7days">Overview</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="visits-graph" class="reports-chart interactive" style="width: 100%"><svg width="280" height="105"><rect x="0" y="0" width="280" height="85" fill="transparent"></rect><g class="axis" width="280" height="0" transform="translate(0,85)"><text text-anchor="middle" x="160" y="17" style="opacity: 0; text-transform: none; fill: rgb(121, 140, 156); stroke: none; font-size: 11px;">Day</text></g><g class="graph-region-a" width="280" height="85"><g class="axis" width="40" height="85"><text text-anchor="middle" x="0" y="200" transform="translate(-182,42)rotate(270)" style="text-transform: none; fill: rgb(121, 140, 156); stroke: none; font-size: 11px;"></text></g><g class="graph-region-d" y="20" width="220" height="85" transform="translate(40,0)"><g class="axis x-axis" transform="translate(0,85)" style="opacity: 1;"><g class="tick" transform="translate(22.941176470588236,0)" style="opacity: 1;"><line y2="6" x2="0" style="stroke: rgb(195, 207, 216); stroke-width: 1px;"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle; text-transform: none; fill: rgb(121, 140, 156); stroke: none; font-size: 11px; opacity: 1;">Mar 5</text></g><g class="tick" transform="translate(55.294117647058826,0)" style="opacity: 1;"><line y2="3" x2="0" style="stroke: rgb(195, 207, 216); stroke-width: 1px;"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle; text-transform: none; fill: rgb(121, 140, 156); stroke: none; font-size: 11px; opacity: 0;">Mar 6</text></g><g class="tick" transform="translate(87.6470588235294,0)" style="opacity: 1;"><line y2="6" x2="0" style="stroke: rgb(195, 207, 216); stroke-width: 1px;"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle; text-transform: none; fill: rgb(121, 140, 156); stroke: none; font-size: 11px; opacity: 1;">Mar 7</text></g><g class="tick" transform="translate(120,0)" style="opacity: 1;"><line y2="3" x2="0" style="stroke: rgb(195, 207, 216); stroke-width: 1px;"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle; text-transform: none; fill: rgb(121, 140, 156); stroke: none; font-size: 11px; opacity: 0;">Mar 8</text></g><g class="tick" transform="translate(152.35294117647058,0)" style="opacity: 1;"><line y2="6" x2="0" style="stroke: rgb(195, 207, 216); stroke-width: 1px;"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle; text-transform: none; fill: rgb(121, 140, 156); stroke: none; font-size: 11px; opacity: 1;">Mar 9</text></g><g class="tick" transform="translate(184.70588235294116,0)" style="opacity: 1;"><line y2="3" x2="0" style="stroke: rgb(195, 207, 216); stroke-width: 1px;"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle; text-transform: none; fill: rgb(121, 140, 156); stroke: none; font-size: 11px; opacity: 0;">Mar 10</text></g><g class="tick" transform="translate(217.05882352941177,0)" style="opacity: 1;"><line y2="6" x2="0" style="stroke: rgb(195, 207, 216); stroke-width: 1px;"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle; text-transform: none; fill: rgb(121, 140, 156); stroke: none; font-size: 11px; opacity: 1;">Mar 11</text></g><path class="domain" d="M10,0V0H230V0" style="display: none;"></path></g><g class="axis y-axis" transform="translate(240, 0)"><g class="tick" transform="translate(0,85)" style="opacity: 1;"><line x2="-240" y2="0" style="fill: none; stroke: rgb(235, 238, 240); shape-rendering: crispEdges; opacity: 1;"></line><text dy=".32em" x="-245" y="0" style="text-anchor: end; text-transform: none; fill: rgb(121, 140, 156); stroke: none; font-size: 11px;"></text></g><g class="tick" transform="translate(0,52.5)" style="opacity: 1;"><line x2="-240" y2="0" style="fill: none; stroke: rgb(235, 238, 240); shape-rendering: crispEdges;"></line><text dy=".32em" x="-245" y="0" style="text-anchor: end; text-transform: none; fill: rgb(121, 140, 156); stroke: none; font-size: 11px;">5</text></g><g class="tick" transform="translate(0,20)" style="opacity: 1;"><line x2="-240" y2="0" style="fill: none; stroke: rgb(235, 238, 240); shape-rendering: crispEdges;"></line><text dy=".32em" x="-245" y="0" style="text-anchor: end; text-transform: none; fill: rgb(121, 140, 156); stroke: none; font-size: 11px;">10</text></g><path class="domain" d="M0,20H0V85H0"></path></g><clipPath class="bar-clip-path" id="bar-clip-path-visits-graph-0"><rect class="bar-clip-path-rect" x="10" y="83" width="25.88235294117647" height="2" ry="0" rx="0"></rect></clipPath><clipPath class="bar-clip-path" id="bar-clip-path-visits-graph-1"><rect class="bar-clip-path-rect" x="42.35294117647059" y="83" width="25.88235294117647" height="2" ry="0" rx="0"></rect></clipPath><clipPath class="bar-clip-path" id="bar-clip-path-visits-graph-2"><rect class="bar-clip-path-rect" x="74.70588235294117" y="83" width="25.88235294117647" height="2" ry="0" rx="0"></rect></clipPath><clipPath class="bar-clip-path" id="bar-clip-path-visits-graph-3"><rect class="bar-clip-path-rect" x="107.05882352941177" y="83" width="25.88235294117647" height="2" ry="0" rx="0"></rect></clipPath><clipPath class="bar-clip-path" id="bar-clip-path-visits-graph-4"><rect class="bar-clip-path-rect" x="139.41176470588235" y="78.5" width="25.88235294117647" height="6.5" ry="0" rx="0"></rect></clipPath><clipPath class="bar-clip-path" id="bar-clip-path-visits-graph-5"><rect class="bar-clip-path-rect" x="171.76470588235293" y="83" width="25.88235294117647" height="2" ry="0" rx="0"></rect></clipPath><clipPath class="bar-clip-path" id="bar-clip-path-visits-graph-6"><rect class="bar-clip-path-rect" x="204.11764705882354" y="72" width="25.88235294117647" height="13" ry="0" rx="0"></rect></clipPath><rect class="bar" x="10" y="83" width="25.88235294117647" height="2" clip-path="url(#bar-clip-path-visits-graph-0)" style="fill: rgb(195, 207, 216); opacity: 1;"></rect><rect class="bar" x="42.35294117647059" y="83" width="25.88235294117647" height="2" clip-path="url(#bar-clip-path-visits-graph-1)" style="fill: rgb(195, 207, 216); opacity: 1;"></rect><rect class="bar" x="74.70588235294117" y="83" width="25.88235294117647" height="2" clip-path="url(#bar-clip-path-visits-graph-2)" style="fill: rgb(195, 207, 216); opacity: 1;"></rect><rect class="bar" x="107.05882352941177" y="83" width="25.88235294117647" height="2" clip-path="url(#bar-clip-path-visits-graph-3)" style="fill: rgb(195, 207, 216); opacity: 1;"></rect><rect class="bar" x="139.41176470588235" y="78.5" width="25.88235294117647" height="6.5" clip-path="url(#bar-clip-path-visits-graph-4)" style="fill: rgb(195, 207, 216); opacity: 1;"></rect><rect class="bar" x="171.76470588235293" y="83" width="25.88235294117647" height="2" clip-path="url(#bar-clip-path-visits-graph-5)" style="fill: rgb(195, 207, 216); opacity: 1;"></rect><rect class="bar" x="204.11764705882354" y="72" width="25.88235294117647" height="13" clip-path="url(#bar-clip-path-visits-graph-6)" style="fill: rgb(195, 207, 216); opacity: 1;"></rect><rect class="hover" x="10" y="0" width="25.88235294117647" height="85" style="opacity: 0;"></rect><rect class="hover" x="42.35294117647059" y="0" width="25.88235294117647" height="85" style="opacity: 0;"></rect><rect class="hover" x="74.70588235294117" y="0" width="25.88235294117647" height="85" style="opacity: 0;"></rect><rect class="hover" x="107.05882352941177" y="0" width="25.88235294117647" height="85" style="opacity: 0;"></rect><rect class="hover" x="139.41176470588235" y="0" width="25.88235294117647" height="85" style="opacity: 0;"></rect><rect class="hover" x="171.76470588235293" y="0" width="25.88235294117647" height="85" style="opacity: 0;"></rect><rect class="hover" x="204.11764705882354" y="0" width="25.88235294117647" height="85" style="opacity: 0;"></rect></g></g></svg><div class="rjs-tooltip" style="opacity: 0;"><div class="rjs-tooltip__content"></div><div class="rjs-tooltip__tail rjs-tooltip__tail__border"></div><div class="rjs-tooltip__tail"></div></div></div>
+</section></div>
+</div>
+
+
+
+
+        <hr class="next-card__separator next-card__separator--thick">
+
+        <div id="activity-feed-placeholder"><div class="next-card next-card--aside next-card--stacked next-card--preserve-first-and-last-section-spacing" define="{ dashboardActivity: new Shopify.DashboardActivity(&quot;all&quot;) }" context="dashboardActivity" refresh="dashboardActivity" id="dashboard-activity">
+  <header class="next-card__header">
+    <h1 class="next-heading next-heading--small type--line-height-equal-to-font">Recent activity</h1>
+  </header>
+
+    <div class="next-card__section next-card__section--no-border next-card__section--half-spacing ">
+      <p class="type--subdued">
+        <span style="margin-right: 0.5em;">
+            Joseph Hillhouse
+            created a new product: <a href="/admin/products/5355838150">Test 1</a>.
+        </span>
+
+        <span class="no-wrap">Mar 12, 03:12 <span bind-show="Shopify.Time.isDifferentTimezone()" class="hide"> EST</span></span>
+      </p>
+    </div>
+    <div class="next-card__section next-card__section--no-border next-card__section--half-spacing ">
+      <p class="type--subdued">
+        <span style="margin-right: 0.5em;">
+            VaVaVoo by Gigster
+            has granted API access to VaVaVoo by Gigster.
+        </span>
+
+        <span class="no-wrap">Mar 12, 03:02 <span bind-show="Shopify.Time.isDifferentTimezone()" class="hide"> EST</span></span>
+      </p>
+    </div>
+    <div class="next-card__section next-card__section--no-border next-card__section--half-spacing ">
+      <p class="type--subdued">
+        <span style="margin-right: 0.5em;">
+            VaVaVoo by Gigster
+            has revoked API access from VaVaVoo by Gigster.
+        </span>
+
+        <span class="no-wrap">Mar 12, 02:56 <span bind-show="Shopify.Time.isDifferentTimezone()" class="hide"> EST</span></span>
+      </p>
+    </div>
+
+  <footer class="next-card__footer">
+    <a href="/admin/activity">View all recent activity</a>
+  </footer>
+</div></div>
+        <a href="/admin/home/activity_feed" define="{ schedule: new Shopify.Partial(this, 'activity-feed-placeholder', {replace: true}).loadPartial()}" type="text/html" style="display: none"></a>
+    </div>
+</div>
+</body>
+<script src="bundle.js"></script>
+
+</html>
